@@ -1,0 +1,44 @@
+# **Drum Sound alla Massive Attack (SD3)**
+
+## **Obiettivo**
+Batteria **scura, pesante, atmosferica**, con kick morbido e snare secco, tipica del trip-hop Bristol anni ’90 (*Mezzanine*, *100th Window*).
+
+## **1. Scelta del kit in SD3**
+- Parti da un kit **Ludwig anni ’70** o **Gretsch** (sono già scuri e pieni).
+- Usa pochi piatti → HH scuro, niente crash brillanti (oppure tienili ma filtrati).
+- Attenzione a **Overheads** e **Room**: sono fondamentali, più dei close-mic.
+
+## **2. Routing in SD3**
+- Kick → Direct Out (pulito).
+- Snare → Direct Out.
+- HH e piatti → abbassa molto, tienili quasi come “rumore di fondo”.
+- Room → tienila alta, sarà il collante del kit.
+- Overhead → abbassali e filtra gli alti, così restano scuri.
+
+## **3. Processing in Logic**
+**Kick**
+- EQ: taglia 250 Hz (–3 dB), boost a 60–70 Hz (+3 dB) → sub morbido.
+- Compressore lento (attacco 30–40 ms) → lascia respirare.
+**Snare**
+- EQ: low cut 150 Hz, boost 200 Hz (+2 dB corpo), leggero +3 dB a 2–3 kHz (snap).
+- Saturazione leggera (Overdrive o Tape Delay trick).
+**Hi-Hat / Piatti**
+- EQ: passa basso 8–10 kHz → niente brillantezza.
+- Delay corto (1/16, feedback basso) per movimento.
+**Room**
+- Compressore aggressivo (FET 1176 style, ratio 8:1, attack veloce, release medio) → “pump” caratteristico.
+- EQ: High Cut 6 kHz per scurire.
+
+## **4. Bus Drums Processing**
+- Parallel compression (“Super Punchy”) → aggiunge corpo e aggressività.
+- Room + Overhead scuri → mischiali al bus principale.
+- Un po’ di reverb ambient dark (2–3 s, filtrato).
+
+## **Carattere finale**
+- Kick profondo e scuro.
+- Snare secco, con carattere ma non brillante.
+- Room compressa che diventa parte del groove.
+- Piatti quasi nascosti, solo come texture.
+- Atmosfera scura, ipnotica → *Massive Attack mood*.
+
+---

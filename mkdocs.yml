@@ -1,0 +1,10 @@
+site_name: S2D01 Manual
+theme:
+  name: material
+  palette:
+    scheme: slate
+    primary: blue
+    accent: cyan
+
+plugins:
+  - search
