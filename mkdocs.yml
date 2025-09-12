@@ -8,3 +8,14 @@ theme:
 
 plugins:
   - search
+
+site_name: S2D01 Manual
+site_url: https://s2d01.github.io/s2d01-docs-z9n4x1c/
+theme:
+  name: material
+  palette:
+    scheme: slate
+    primary: blue
+    accent: cyan
+plugins:
+  - search
