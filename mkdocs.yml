@@ -8,6 +8,7 @@ theme:
     scheme: slate
     primary: blue
     accent: cyan
+    custom_dir: overrides
 
 plugins:
   - search
