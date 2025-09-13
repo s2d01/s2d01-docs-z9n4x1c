@@ -24,3 +24,5 @@ Template Logic Pro light e full
 Suggerimenti e workflow
 
  
+
+_Last build check: OK_
