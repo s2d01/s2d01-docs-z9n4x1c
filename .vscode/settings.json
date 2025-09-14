@@ -1,0 +1,30 @@
+{
+  "files.associations": {
+    "mkdocs.yml": "yaml"
+  },
+  "files.watcherExclude": {
+    "**/site/**": true
+  },
+  "search.exclude": {
+    "**/site/**": true
+  },
+  "markdown.extension.tableFormatter.enabled": true,
+  "markdown.preview.breaks": false,
+  "editor.wordWrapColumn": 100,
+  "[markdown]": {
+    "editor.wordWrap": "on",
+    "editor.renderWhitespace": "selection"
+  },
+  "[yaml]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
+  },
+  "yaml.validate": true,
+  "yaml.format.enable": true,
+  "yaml.customTags": [],
+  "github.copilot.enable": {
+    "*": false,
+    "markdown": true,
+    "yaml": true
+  }
+}

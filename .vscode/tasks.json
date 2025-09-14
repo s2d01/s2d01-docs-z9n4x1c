@@ -1,0 +1,35 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "MkDocs: Serve",
+      "type": "shell",
+      "command": "mkdocs",
+      "args": [
+        "serve"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "MkDocs: Build",
+      "type": "shell",
+      "command": "mkdocs",
+      "args": [
+        "build"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "MkDocs: Deploy",
+      "type": "shell",
+      "command": "mkdocs",
+      "args": [
+        "gh-deploy",
+        "--clean",
+        "-m",
+        "Deploy"
+      ],
+      "problemMatcher": []
+    }
+  ]
+}
