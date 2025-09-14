@@ -25,4 +25,3 @@ Suggerimenti e workflow
 
  
 
-[Vai alla checklist](TIPS/checklist-rapida.md)
