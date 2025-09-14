@@ -25,4 +25,3 @@ Suggerimenti e workflow
 
  
 
-_Last build check: OK_
