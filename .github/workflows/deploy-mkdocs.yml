@@ -9,8 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0        # serve tutta la history per la data giusta
       - uses: actions/setup-python@v5
         with:
           python-version: '3.x'
-      - run: pip install mkdocs mkdocs-material
-      - run: mkdocs gh-deploy --force
+      - run: pip install mkdocs mkdocs-material mkdocs-git-revision-date-localized-plugin
+      - name: Deploy to gh-pages
+        run: mkdocs gh-deploy --force --clean
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
