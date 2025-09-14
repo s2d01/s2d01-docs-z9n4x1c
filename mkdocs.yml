@@ -4,6 +4,7 @@ docs_dir: docs
 
 theme:
   name: material
+  language: it
   palette:
     scheme: slate
     primary: blue
@@ -12,4 +13,9 @@ theme:
 
 plugins:
   - search
-
+  - git-revision-date-localized:
+      type: date
+      locale: it
+      timezone: Europe/Rome
+      fallback_to_build_date: true
+      format: "%d/%m/%Y"   # es: 14/09/2025
