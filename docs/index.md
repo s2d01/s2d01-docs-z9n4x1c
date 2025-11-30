@@ -17,6 +17,9 @@ Comandi rapidi Logic Pro
 ## MASTER
 Sezione master e finalizzazione
 
+## MCP MIDI FILE SERVER
+Sezione Server MPC: Creazione di files MIDI
+
 ## TEMPLATE
 Template Logic Pro light e full
 
