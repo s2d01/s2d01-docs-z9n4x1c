@@ -58,7 +58,7 @@ Crea il file `logic_mcp_server.py`:
 nano logic_mcp_server.py
 ```
 
-Incolla il seguente codice (disponibile anche su [GitHub](link-al-tuo-repo)):
+Incolla il seguente codice:
 
 ```python
 #!/usr/bin/env python3
