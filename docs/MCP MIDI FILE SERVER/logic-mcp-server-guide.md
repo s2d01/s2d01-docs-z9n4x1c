@@ -436,9 +436,8 @@ Funzionalità pianificate per versioni future:
 
 Per bug report, feature request o contributi:
 
-- **Issues:** [GitHub Issues](link-al-tuo-repo)
 - **Documentazione:** [s2d01.github.io](https://s2d01.github.io/s2d01-docs-z9n4x1c/)
-- **Contatti:** [tuo-contatto]
+- **Contatti:** [jabeabsi2004@yahoo.com]
 
 ---
 
@@ -457,12 +456,6 @@ MIT License - Sentiti libero di modificare e distribuire.
 - Export in formato MIDI standard
 
 ---
-
-## Appendice A: Codice Completo del Server
-
-Per il codice completo e aggiornato del file `logic_mcp_server.py`, visita:
-
-[GitHub Repository](link-al-tuo-repo) oppure consulta l'artifact "Logic Pro MCP Server" nella conversazione con Claude.
 
 Il codice include:
 - Sistema di generazione MIDI ottimizzato
