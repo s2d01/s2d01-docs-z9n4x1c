@@ -4691,9 +4691,511 @@ MIDI_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 print(f&quot;📁 File MIDI salvati in: {MIDI_OUTPUT_DIR}&quot;)
 
-# [... resto del codice dal server completo ...]
+# ====================
+# UTILITÀ MIDI
+# ====================
+
+def note_to_midi(note_name: str) -&gt; int:
+    &quot;&quot;&quot;Converte nome nota (es. C4) in numero MIDI&quot;&quot;&quot;
+    notes = {'C': 0, 'C#': 1, 'Db': 1, 'D': 2, 'D#': 3, 'Eb': 3, 
+             'E': 4, 'F': 5, 'F#': 6, 'Gb': 6, 'G': 7, 
+             'G#': 8, 'Ab': 8, 'A': 9, 'A#': 10, 'Bb': 10, 'B': 11}
+
+    note = note_name[:-1]
+    octave = int(note_name[-1])
+    return notes.get(note, 0) + (octave + 1) * 12
+
+def get_chord_notes(root: str, chord_type: str = &quot;major&quot;) -&gt; list:
+    &quot;&quot;&quot;Ritorna le note MIDI di un accordo&quot;&quot;&quot;
+    root_midi = note_to_midi(root + &quot;4&quot;)
+
+    if chord_type == &quot;major&quot;:
+        return [root_midi, root_midi + 4, root_midi + 7]
+    elif chord_type == &quot;minor&quot;:
+        return [root_midi, root_midi + 3, root_midi + 7]
+    elif chord_type == &quot;7&quot;:
+        return [root_midi, root_midi + 4, root_midi + 7, root_midi + 10]
+    elif chord_type == &quot;m7&quot;:
+        return [root_midi, root_midi + 3, root_midi + 7, root_midi + 10]
+    else:
+        return [root_midi, root_midi + 4, root_midi + 7]
+
+# ====================
+# GENERATORI MIDI
+# ====================
+
+def create_chord_progression_midi(key: str, progression: list, tempo: int = 120, bars: int = 4) -&gt; str:
+    &quot;&quot;&quot;Genera un file MIDI con progressione di accordi&quot;&quot;&quot;
+    mid = MidiFile()
+    track = MidiTrack()
+    mid.tracks.append(track)
+
+    # Imposta tempo
+    track.append(MetaMessage('set_tempo', tempo=int(60000000 / tempo)))
+    track.append(MetaMessage('time_signature', numerator=4, denominator=4))
+
+    # Durata di una battuta (in ticks, 480 ticks = 1 beat)
+    ticks_per_beat = 480
+    beats_per_bar = 4
+    bar_duration = ticks_per_beat * beats_per_bar
+
+    # Genera accordi
+    for i, chord_name in enumerate(progression * (bars // len(progression) + 1))[:bars]:
+        if i &gt;= bars:
+            break
+
+        # Determina tipo di accordo
+        if &quot;m&quot; in chord_name.lower():
+            root = chord_name.replace(&quot;m&quot;, &quot;&quot;).replace(&quot;7&quot;, &quot;&quot;)
+            chord_type = &quot;m7&quot; if &quot;7&quot; in chord_name else &quot;minor&quot;
+        elif &quot;7&quot; in chord_name:
+            root = chord_name.replace(&quot;7&quot;, &quot;&quot;)
+            chord_type = &quot;7&quot;
+        else:
+            root = chord_name
+            chord_type = &quot;major&quot;
+
+        notes = get_chord_notes(root, chord_type)
+
+        # Note on
+        for note in notes:
+            track.append(Message('note_on', note=note, velocity=80, time=0))
+
+        # Note off dopo una battuta
+        for j, note in enumerate(notes):
+            time = bar_duration if j == 0 else 0
+            track.append(Message('note_off', note=note, velocity=0, time=time))
+
+    # Salva file
+    timestamp = datetime.now().strftime(&quot;%Y%m%d_%H%M%S&quot;)
+    filename = f&quot;chord_progression_{key}_{timestamp}.mid&quot;
+    filepath = MIDI_OUTPUT_DIR / filename
+    mid.save(str(filepath))
+
+    return str(filepath)
+
+def create_drum_pattern_midi(pattern_type: str = &quot;house&quot;, tempo: int = 120, bars: int = 4) -&gt; str:
+    &quot;&quot;&quot;Genera un pattern di batteria&quot;&quot;&quot;
+    mid = MidiFile()
+    track = MidiTrack()
+    mid.tracks.append(track)
+
+    track.append(MetaMessage('set_tempo', tempo=int(60000000 / tempo)))
+    track.append(MetaMessage('time_signature', numerator=4, denominator=4))
+
+    # Drum MIDI notes (General MIDI)
+    KICK = 36
+    SNARE = 38
+    CLOSED_HAT = 42
+    OPEN_HAT = 46
+
+    ticks_per_beat = 480
+    eighth_note = ticks_per_beat // 2
+    sixteenth_note = ticks_per_beat // 4
+
+    patterns = {
+        &quot;house&quot;: [
+            # Kick on 1, 2, 3, 4
+            [(KICK, [0, ticks_per_beat * 1, ticks_per_beat * 2, ticks_per_beat * 3])],
+            # Snare on 2, 4
+            [(SNARE, [ticks_per_beat * 1, ticks_per_beat * 3])],
+            # Hi-hat on eighths
+            [(CLOSED_HAT, [i * eighth_note for i in range(8)])],
+        ],
+        &quot;techno&quot;: [
+            [(KICK, [i * ticks_per_beat for i in range(4)])],
+            [(CLOSED_HAT, [i * eighth_note for i in range(8)])],
+            [(OPEN_HAT, [ticks_per_beat * 3 + eighth_note])],
+        ],
+        &quot;trap&quot;: [
+            [(KICK, [0, ticks_per_beat, ticks_per_beat + eighth_note, ticks_per_beat * 3])],
+            [(SNARE, [ticks_per_beat * 1, ticks_per_beat * 3])],
+            [(CLOSED_HAT, [i * sixteenth_note for i in range(16)])],
+        ]
+    }
+
+    pattern = patterns.get(pattern_type, patterns[&quot;house&quot;])
+
+    # Genera pattern per N battute
+    for bar in range(bars):
+        bar_offset = bar * ticks_per_beat * 4
+
+        for drum_notes in pattern:
+            note, timings = drum_notes
+            for timing in timings:
+                track.append(Message('note_on', note=note, velocity=100, time=timing + bar_offset, channel=9))
+                track.append(Message('note_off', note=note, velocity=0, time=8, channel=9))
+
+    # Salva file
+    timestamp = datetime.now().strftime(&quot;%Y%m%d_%H%M%S&quot;)
+    filename = f&quot;drums_{pattern_type}_{timestamp}.mid&quot;
+    filepath = MIDI_OUTPUT_DIR / filename
+    mid.save(str(filepath))
+
+    return str(filepath)
+
+def create_bass_line_midi(key: str, pattern: str = &quot;steady&quot;, tempo: int = 120, bars: int = 4) -&gt; str:
+    &quot;&quot;&quot;Genera una linea di basso&quot;&quot;&quot;
+    mid = MidiFile()
+    track = MidiTrack()
+    mid.tracks.append(track)
+
+    track.append(MetaMessage('set_tempo', tempo=int(60000000 / tempo)))
+
+    root_note = note_to_midi(key + &quot;2&quot;)
+    ticks_per_beat = 480
+
+    patterns_dict = {
+        &quot;steady&quot;: [0, 0, 0, 0],  # Root on every beat
+        &quot;syncopated&quot;: [0, -1, 7, 0],  # Root, rest, fifth, root
+        &quot;walking&quot;: [0, 2, 4, 7],  # Walking bass
+    }
+
+    intervals = patterns_dict.get(pattern, patterns_dict[&quot;steady&quot;])
+
+    for bar in range(bars):
+        for i, interval in enumerate(intervals):
+            if interval == -1:  # Rest
+                track.append(Message('note_on', note=0, velocity=0, time=ticks_per_beat))
+                continue
+
+            note = root_note + interval
+            track.append(Message('note_on', note=note, velocity=90, time=0 if i &gt; 0 else 0))
+            track.append(Message('note_off', note=note, velocity=0, time=ticks_per_beat))
+
+    timestamp = datetime.now().strftime(&quot;%Y%m%d_%H%M%S&quot;)
+    filename = f&quot;bass_{key}_{pattern}_{timestamp}.mid&quot;
+    filepath = MIDI_OUTPUT_DIR / filename
+    mid.save(str(filepath))
+
+    return str(filepath)
+
+def create_melody_midi(scale: str, key: str, tempo: int = 120, bars: int = 4) -&gt; str:
+    &quot;&quot;&quot;Genera una melodia semplice&quot;&quot;&quot;
+    mid = MidiFile()
+    track = MidiTrack()
+    mid.tracks.append(track)
+
+    track.append(MetaMessage('set_tempo', tempo=int(60000000 / tempo)))
+
+    # Scale intervals
+    scales = {
+        &quot;major&quot;: [0, 2, 4, 5, 7, 9, 11, 12],
+        &quot;minor&quot;: [0, 2, 3, 5, 7, 8, 10, 12],
+        &quot;pentatonic&quot;: [0, 2, 4, 7, 9, 12],
+    }
+
+    root = note_to_midi(key + &quot;4&quot;)
+    scale_notes = [root + interval for interval in scales.get(scale, scales[&quot;major&quot;])]
+
+    ticks_per_beat = 480
+
+    # Genera melodia random ma musicale
+    import random
+    for bar in range(bars):
+        for beat in range(4):
+            note = random.choice(scale_notes)
+            duration = random.choice([ticks_per_beat // 2, ticks_per_beat])
+
+            track.append(Message('note_on', note=note, velocity=70, time=0))
+            track.append(Message('note_off', note=note, velocity=0, time=duration))
+
+    timestamp = datetime.now().strftime(&quot;%Y%m%d_%H%M%S&quot;)
+    filename = f&quot;melody_{scale}_{key}_{timestamp}.mid&quot;
+    filepath = MIDI_OUTPUT_DIR / filename
+    mid.save(str(filepath))
+
+    return str(filepath)
+
+# ====================
+# TOOLS MCP
+# ====================
+
+@app.list_tools()
+async def list_tools() -&gt; list[Tool]:
+    &quot;&quot;&quot;Lista tutti gli strumenti disponibili&quot;&quot;&quot;
+    return [
+        Tool(
+            name=&quot;generate_chord_progression&quot;,
+            description=&quot;Genera un file MIDI con una progressione di accordi pronto per Logic Pro&quot;,
+            inputSchema={
+                &quot;type&quot;: &quot;object&quot;,
+                &quot;properties&quot;: {
+                    &quot;key&quot;: {
+                        &quot;type&quot;: &quot;string&quot;,
+                        &quot;description&quot;: &quot;Tonalità (es. 'C', 'Am', 'F#')&quot;,
+                        &quot;default&quot;: &quot;C&quot;
+                    },
+                    &quot;progression&quot;: {
+                        &quot;type&quot;: &quot;array&quot;,
+                        &quot;items&quot;: {&quot;type&quot;: &quot;string&quot;},
+                        &quot;description&quot;: &quot;Progressione di accordi (es. ['C', 'Am', 'F', 'G'])&quot;,
+                        &quot;default&quot;: [&quot;C&quot;, &quot;Am&quot;, &quot;F&quot;, &quot;G&quot;]
+                    },
+                    &quot;tempo&quot;: {
+                        &quot;type&quot;: &quot;number&quot;,
+                        &quot;description&quot;: &quot;Tempo in BPM&quot;,
+                        &quot;default&quot;: 120
+                    },
+                    &quot;bars&quot;: {
+                        &quot;type&quot;: &quot;number&quot;,
+                        &quot;description&quot;: &quot;Numero di battute&quot;,
+                        &quot;default&quot;: 4
+                    }
+                },
+                &quot;required&quot;: []
+            }
+        ),
+        Tool(
+            name=&quot;generate_drum_pattern&quot;,
+            description=&quot;Genera un pattern di batteria MIDI per Logic Pro&quot;,
+            inputSchema={
+                &quot;type&quot;: &quot;object&quot;,
+                &quot;properties&quot;: {
+                    &quot;pattern_type&quot;: {
+                        &quot;type&quot;: &quot;string&quot;,
+                        &quot;enum&quot;: [&quot;house&quot;, &quot;techno&quot;, &quot;trap&quot;],
+                        &quot;description&quot;: &quot;Tipo di pattern ritmico&quot;,
+                        &quot;default&quot;: &quot;house&quot;
+                    },
+                    &quot;tempo&quot;: {
+                        &quot;type&quot;: &quot;number&quot;,
+                        &quot;description&quot;: &quot;Tempo in BPM&quot;,
+                        &quot;default&quot;: 120
+                    },
+                    &quot;bars&quot;: {
+                        &quot;type&quot;: &quot;number&quot;,
+                        &quot;description&quot;: &quot;Numero di battute&quot;,
+                        &quot;default&quot;: 4
+                    }
+                },
+                &quot;required&quot;: []
+            }
+        ),
+        Tool(
+            name=&quot;generate_bass_line&quot;,
+            description=&quot;Genera una linea di basso MIDI&quot;,
+            inputSchema={
+                &quot;type&quot;: &quot;object&quot;,
+                &quot;properties&quot;: {
+                    &quot;key&quot;: {
+                        &quot;type&quot;: &quot;string&quot;,
+                        &quot;description&quot;: &quot;Tonalità (es. 'C', 'A', 'F#')&quot;,
+                        &quot;default&quot;: &quot;C&quot;
+                    },
+                    &quot;pattern&quot;: {
+                        &quot;type&quot;: &quot;string&quot;,
+                        &quot;enum&quot;: [&quot;steady&quot;, &quot;syncopated&quot;, &quot;walking&quot;],
+                        &quot;description&quot;: &quot;Tipo di pattern di basso&quot;,
+                        &quot;default&quot;: &quot;steady&quot;
+                    },
+                    &quot;tempo&quot;: {
+                        &quot;type&quot;: &quot;number&quot;,
+                        &quot;description&quot;: &quot;Tempo in BPM&quot;,
+                        &quot;default&quot;: 120
+                    },
+                    &quot;bars&quot;: {
+                        &quot;type&quot;: &quot;number&quot;,
+                        &quot;description&quot;: &quot;Numero di battute&quot;,
+                        &quot;default&quot;: 4
+                    }
+                },
+                &quot;required&quot;: []
+            }
+        ),
+        Tool(
+            name=&quot;generate_melody&quot;,
+            description=&quot;Genera una melodia MIDI basata su una scala&quot;,
+            inputSchema={
+                &quot;type&quot;: &quot;object&quot;,
+                &quot;properties&quot;: {
+                    &quot;scale&quot;: {
+                        &quot;type&quot;: &quot;string&quot;,
+                        &quot;enum&quot;: [&quot;major&quot;, &quot;minor&quot;, &quot;pentatonic&quot;],
+                        &quot;description&quot;: &quot;Tipo di scala&quot;,
+                        &quot;default&quot;: &quot;major&quot;
+                    },
+                    &quot;key&quot;: {
+                        &quot;type&quot;: &quot;string&quot;,
+                        &quot;description&quot;: &quot;Tonalità (es. 'C', 'A', 'F#')&quot;,
+                        &quot;default&quot;: &quot;C&quot;
+                    },
+                    &quot;tempo&quot;: {
+                        &quot;type&quot;: &quot;number&quot;,
+                        &quot;description&quot;: &quot;Tempo in BPM&quot;,
+                        &quot;default&quot;: 120
+                    },
+                    &quot;bars&quot;: {
+                        &quot;type&quot;: &quot;number&quot;,
+                        &quot;description&quot;: &quot;Numero di battute&quot;,
+                        &quot;default&quot;: 4
+                    }
+                },
+                &quot;required&quot;: []
+            }
+        ),
+        Tool(
+            name=&quot;create_full_arrangement&quot;,
+            description=&quot;Genera un arrangement completo con accordi, basso e batteria&quot;,
+            inputSchema={
+                &quot;type&quot;: &quot;object&quot;,
+                &quot;properties&quot;: {
+                    &quot;key&quot;: {
+                        &quot;type&quot;: &quot;string&quot;,
+                        &quot;description&quot;: &quot;Tonalità (es. 'C', 'Am')&quot;,
+                        &quot;default&quot;: &quot;C&quot;
+                    },
+                    &quot;genre&quot;: {
+                        &quot;type&quot;: &quot;string&quot;,
+                        &quot;enum&quot;: [&quot;house&quot;, &quot;techno&quot;, &quot;trap&quot;],
+                        &quot;description&quot;: &quot;Genere musicale&quot;,
+                        &quot;default&quot;: &quot;house&quot;
+                    },
+                    &quot;tempo&quot;: {
+                        &quot;type&quot;: &quot;number&quot;,
+                        &quot;description&quot;: &quot;Tempo in BPM&quot;,
+                        &quot;default&quot;: 120
+                    },
+                    &quot;bars&quot;: {
+                        &quot;type&quot;: &quot;number&quot;,
+                        &quot;description&quot;: &quot;Numero di battute&quot;,
+                        &quot;default&quot;: 8
+                    }
+                },
+                &quot;required&quot;: []
+            }
+        )
+    ]
+
+@app.call_tool()
+async def call_tool(name: str, arguments: Any) -&gt; Sequence[TextContent | ImageContent | EmbeddedResource]:
+    &quot;&quot;&quot;Esegue il tool richiesto&quot;&quot;&quot;
+
+    if name == &quot;generate_chord_progression&quot;:
+        key = arguments.get(&quot;key&quot;, &quot;C&quot;)
+        progression = arguments.get(&quot;progression&quot;, [&quot;C&quot;, &quot;Am&quot;, &quot;F&quot;, &quot;G&quot;])
+        tempo = arguments.get(&quot;tempo&quot;, 120)
+        bars = arguments.get(&quot;bars&quot;, 4)
+
+        filepath = create_chord_progression_midi(key, progression, tempo, bars)
+
+        return [TextContent(
+            type=&quot;text&quot;,
+            text=f&quot;🎹 Progressione di accordi creata!\n\n&quot;
+                 f&quot;📁 File: {filepath}\n&quot;
+                 f&quot;🎵 Tonalità: {key}\n&quot;
+                 f&quot;📊 Accordi: {' - '.join(progression)}\n&quot;
+                 f&quot;⏱️ Tempo: {tempo} BPM\n&quot;
+                 f&quot;📏 Battute: {bars}\n\n&quot;
+                 f&quot;💡 Trascina il file in Logic Pro per importarlo!&quot;
+        )]
+
+    elif name == &quot;generate_drum_pattern&quot;:
+        pattern_type = arguments.get(&quot;pattern_type&quot;, &quot;house&quot;)
+        tempo = arguments.get(&quot;tempo&quot;, 120)
+        bars = arguments.get(&quot;bars&quot;, 4)
+
+        filepath = create_drum_pattern_midi(pattern_type, tempo, bars)
+
+        return [TextContent(
+            type=&quot;text&quot;,
+            text=f&quot;🥁 Pattern di batteria creato!\n\n&quot;
+                 f&quot;📁 File: {filepath}\n&quot;
+                 f&quot;🎶 Stile: {pattern_type}\n&quot;
+                 f&quot;⏱️ Tempo: {tempo} BPM\n&quot;
+                 f&quot;📏 Battute: {bars}\n\n&quot;
+                 f&quot;💡 Trascina il file in Logic Pro e assegna a una traccia Drum Kit!&quot;
+        )]
+
+    elif name == &quot;generate_bass_line&quot;:
+        key = arguments.get(&quot;key&quot;, &quot;C&quot;)
+        pattern = arguments.get(&quot;pattern&quot;, &quot;steady&quot;)
+        tempo = arguments.get(&quot;tempo&quot;, 120)
+        bars = arguments.get(&quot;bars&quot;, 4)
+
+        filepath = create_bass_line_midi(key, pattern, tempo, bars)
+
+        return [TextContent(
+            type=&quot;text&quot;,
+            text=f&quot;🎸 Linea di basso creata!\n\n&quot;
+                 f&quot;📁 File: {filepath}\n&quot;
+                 f&quot;🎵 Tonalità: {key}\n&quot;
+                 f&quot;🎼 Pattern: {pattern}\n&quot;
+                 f&quot;⏱️ Tempo: {tempo} BPM\n&quot;
+                 f&quot;📏 Battute: {bars}\n\n&quot;
+                 f&quot;💡 Perfetto per synth bass o basso elettrico!&quot;
+        )]
+
+    elif name == &quot;generate_melody&quot;:
+        scale = arguments.get(&quot;scale&quot;, &quot;major&quot;)
+        key = arguments.get(&quot;key&quot;, &quot;C&quot;)
+        tempo = arguments.get(&quot;tempo&quot;, 120)
+        bars = arguments.get(&quot;bars&quot;, 4)
+
+        filepath = create_melody_midi(scale, key, tempo, bars)
+
+        return [TextContent(
+            type=&quot;text&quot;,
+            text=f&quot;🎼 Melodia creata!\n\n&quot;
+                 f&quot;📁 File: {filepath}\n&quot;
+                 f&quot;🎹 Scala: {scale}\n&quot;
+                 f&quot;🎵 Tonalità: {key}\n&quot;
+                 f&quot;⏱️ Tempo: {tempo} BPM\n&quot;
+                 f&quot;📏 Battute: {bars}\n\n&quot;
+                 f&quot;💡 Usa come punto di partenza per il tuo lead!&quot;
+        )]
+
+    elif name == &quot;create_full_arrangement&quot;:
+        key = arguments.get(&quot;key&quot;, &quot;C&quot;)
+        genre = arguments.get(&quot;genre&quot;, &quot;house&quot;)
+        tempo = arguments.get(&quot;tempo&quot;, 120)
+        bars = arguments.get(&quot;bars&quot;, 8)
+
+        # Genera tutti gli elementi
+        progression = [&quot;C&quot;, &quot;Am&quot;, &quot;F&quot;, &quot;G&quot;] if &quot;m&quot; not in key else [&quot;Am&quot;, &quot;F&quot;, &quot;C&quot;, &quot;G&quot;]
+
+        chord_file = create_chord_progression_midi(key, progression, tempo, bars)
+        drum_file = create_drum_pattern_midi(genre, tempo, bars)
+        bass_file = create_bass_line_midi(key.replace(&quot;m&quot;, &quot;&quot;), &quot;syncopated&quot;, tempo, bars)
+
+        return [TextContent(
+            type=&quot;text&quot;,
+            text=f&quot;🎵 Arrangement completo creato!\n\n&quot;
+                 f&quot;📦 3 file MIDI generati:\n&quot;
+                 f&quot;1. 🎹 Accordi: {os.path.basename(chord_file)}\n&quot;
+                 f&quot;2. 🥁 Batteria: {os.path.basename(drum_file)}\n&quot;
+                 f&quot;3. 🎸 Basso: {os.path.basename(bass_file)}\n\n&quot;
+                 f&quot;📁 Tutti salvati in: {MIDI_OUTPUT_DIR}\n\n&quot;
+                 f&quot;🎵 Tonalità: {key}\n&quot;
+                 f&quot;🎶 Genere: {genre}\n&quot;
+                 f&quot;⏱️ Tempo: {tempo} BPM\n&quot;
+                 f&quot;📏 Battute: {bars}\n\n&quot;
+                 f&quot;💡 Importa tutti i file in Logic per un arrangement completo!&quot;
+        )]
+
+    else:
+        return [TextContent(type=&quot;text&quot;, text=f&quot;Tool '{name}' non riconosciuto&quot;)]
+
+# ====================
+# MAIN
+# ====================
+
+async def main():
+    &quot;&quot;&quot;Avvia il server MCP&quot;&quot;&quot;
+    from mcp.server.stdio import stdio_server
+
+    async with stdio_server() as (read_stream, write_stream):
+        await app.run(
+            read_stream,
+            write_stream,
+            app.create_initialization_options()
+        )
+
+if __name__ == &quot;__main__&quot;:
+    print(&quot;🎵 Logic Pro MIDI Generator - Server MCP avviato!&quot;)
+    print(f&quot;📁 File MIDI salvati in: {MIDI_OUTPUT_DIR}&quot;)
+    asyncio.run(main())
 </code></pre>
-<p><strong>Nota:</strong> Per il codice completo, vedi l'Appendice A alla fine di questa guida.</p>
 <p>Salva il file:
 - Premi <code>Ctrl+O</code> per salvare
 - Premi <code>Invio</code> per confermare
@@ -4972,7 +5474,7 @@ Built with Python, mido, and lots of ☕</p>
     <span class="md-icon" title="Ultimo aggiornamento">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="30 novembre 2025 23:35:56 CET">30 novembre 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="1 dicembre 2025 00:04:48 CET">1 dicembre 2025</span>
   </span>
 
     
