@@ -18,7 +18,7 @@ Comandi rapidi Logic Pro
 Sezione master e finalizzazione
 
 ## MCP MIDI FILE SERVER
-Sezione Server MPC: Creazione di files MIDI
+Questo server MCP (Model Context Protocol) permette a Claude di generare file MIDI per Logic Pro X, inclusi: - Progressioni di accordi - Pattern di batteria (house, techno, trap) - Linee di basso - Melodie - Arrangement completi
 
 ## TEMPLATE
 Template Logic Pro light e full
