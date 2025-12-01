@@ -1,0 +1,1805 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://s2d01.github.io/s2d01-docs-z9n4x1c/en/MCP%20MIDI%20FILE%20SERVER/logic-mcp-server-guide/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Installation Guide: Logic Pro MCP Server for macOS Sequoia - S2D01 Manual (EN)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+  <meta name="robots" content="noindex, nofollow">
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#installation-guide-logic-pro-mcp-server-for-macos-sequoia" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="S2D01 Manual (EN)" class="md-header__button md-logo" aria-label="S2D01 Manual (EN)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            S2D01 Manual (EN)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Installation Guide: Logic Pro MCP Server for macOS Sequoia
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="S2D01 Manual (EN)" class="md-nav__button md-logo" aria-label="S2D01 Manual (EN)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    S2D01 Manual (EN)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://s2d01.github.io/s2d01-docs-z9n4x1c/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Italian version
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home (EN)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S2D01 MANUAL
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    S2D01 MANUAL
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DRUMS/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DRUMS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-by-step-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step-by-Step Installation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step-by-Step Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-python-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Python verification
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-create-the-project-folder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Create the Project Folder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-create-the-server-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Create the Server File
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-install-python-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Install Python Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-test-the-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Test the Server
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-configure-claude-desktop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Configure Claude Desktop
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#available-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Available Commands
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Available Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-generate-chord-progressions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Generate Chord Progressions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-generate-drum-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Generate Drum Patterns.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-generate-bass-lines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Generate Bass Lines
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-generate-melodies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Generate Melodies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-create-complete-arrangement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Create Complete Arrangement
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#import-midi-files-into-logic-pro" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Import MIDI Files into Logic Pro
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Import MIDI Files into Logic Pro">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#method-1-drag-drop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Method 1: Drag &amp; Drop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method-2-import-menu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Method 2: Import Menu
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assign-instruments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Assign Instruments
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#server-wont-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Server won't start
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#claude-doesnt-see-the-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Claude doesn't see the server
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permissions-denied" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Permissions Denied
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#midi-files-cant-be-heard-in-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MIDI files can't be heard in Logic
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#errors-in-the-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Errors in the logs
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Known Limitations.
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Known Limitations.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-it-can-not-do-due-to-macos-sequoia-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What it can NOT do (due to macOS Sequoia limitations):
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-it-can-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What it CAN do:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uninstalling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Uninstalling
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#faq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FAQ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="FAQ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#can-i-use-this-server-with-other-daws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Can I use this server with other DAWs?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#can-i-edit-the-generated-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Can I edit the generated patterns?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-much-space-do-midi-files-take-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How much space do MIDI files take up?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#can-i-create-custom-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Can I create custom patterns?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#does-the-server-work-offline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Does the server work offline?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#can-i-use-sharpsflat-tones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Can I use sharps/flat tones?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upcoming-developments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Upcoming Developments
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#support-and-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Support and Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#license" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        License
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changelog" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changelog
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Changelog">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#v100-november-30-2024" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v1.0.0 (November 30, 2024)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#credits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Credits
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="installation-guide-logic-pro-mcp-server-for-macos-sequoia">Installation Guide: Logic Pro MCP Server for macOS Sequoia</h1>
+<h2 id="overview">Overview.</h2>
+<p>This MCP (Model Context Protocol) server allows Claude to generate MIDI files for Logic Pro X, including:
+- Chord progressions
+- Drum patterns (house, techno, trap)
+- Bass lines
+- Melodies
+- Complete Arrangements</p>
+<p><strong>Compatibility:</strong> macOS Sequoia 15.7.2 or higher</p>
+<p><strong>Important note:</strong> Due to AppleScript limitations in macOS Sequoia, this server only generates MIDI files that must be manually imported into Logic Pro. It cannot control Logic directly.</p>
+<hr />
+<h2 id="prerequisites">Prerequisites.</h2>
+<ul>
+<li>macOS Sequoia 15.7.2 or higher</li>
+<li>Python 3.10 or higher</li>
+<li>Claude Desktop installed (<a href="https://claude.ai/download">download here</a>)</li>
+<li>Logic Pro X</li>
+</ul>
+<hr />
+<h2 id="step-by-step-installation">Step-by-Step Installation</h2>
+<h3 id="1-python-verification">1. Python verification</h3>
+<p>Open the Terminal and verify the version of Python:</p>
+<pre><code class="language-bash">python3 --version
+</code></pre>
+<p>If you don't have Python installed:</p>
+<pre><code class="language-bash"># Install Homebrew (if you don't have it).
+/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;
+
+# Install Python
+brew install python3
+</code></pre>
+<h3 id="2-create-the-project-folder">2. Create the Project Folder</h3>
+<pre><code class="language-bash">mkdir ~/logic-mcp-server
+cd ~/logic-mcp-server
+</code></pre>
+<h3 id="3-create-the-server-file">3. Create the Server File</h3>
+<p>Create the file <code>logic_mcp_server.py</code>:</p>
+<pre><code class="language-bash">nano logic_mcp_server.py
+</code></pre>
+<p>Paste the following code:</p>
+<pre><code class="language-python">#!/usr/bin/env python3
+&quot;&quot;&quot;
+Logic Pro MCP Server - MIDI Generation Version
+Generates complete MIDI files that can be imported into Logic Pro
+&quot;&quot;&quot;
+
+import asyncio
+import json
+import os
+from pathlib import Path
+from typing import Any, Sequence
+from datetime import datetime
+
+try:
+    from mcp.server import Server
+    from mcp.types import Tool, TextContent, ImageContent, EmbeddedResource
+    from mido import MidiFile, MidiTrack, Message, MetaMessage
+except ImportError:
+    print(&quot;Install: pip3 install mcp mido&quot;)
+    exit(1)
+
+# Initialize the MCP server
+app = Server(&quot;logic-pro-midi-generator&quot;)
+
+# Output folder for MIDI files.
+MIDI_OUTPUT_DIR = Path.home() / &quot;Music&quot; / &quot;Logic&quot; / &quot;Claude_MIDI&quot;
+MIDI_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+
+print(f&quot;📁 MIDI files saved in: {MIDI_OUTPUT_DIR}&quot;)
+
+# ====================
+# MIDI UTILITIES
+# ====================
+
+def note_to_midi(note_name: str) -&gt; int:
+    &quot;&quot;&quot;Converts note name (e.g., C4) to MIDI number&quot;&quot;&quot;
+    notes = {'C': 0, 'C#': 1, 'Db': 1, 'D': 2, 'D#': 3, 'Eb': 3,
+             'E': 4, 'F': 5, 'F#': 6, 'Gb': 6, 'G': 7,
+             'G#': 8, 'Ab': 8, 'A': 9, 'A#': 10, 'Bb': 10, 'B': 11}
+
+    note = note_name[:-1]
+    octave = int(note_name[-1])
+    return notes.get(note, 0) + (octave + 1) * 12
+
+def get_chord_notes(root: str, chord_type: str = &quot;major&quot;) -&gt; list:
+    &quot;&quot;&quot;Return the MIDI notes of a chord&quot;&quot;&quot;&quot;
+    root_midi = notes_to_midi(root + &quot;4&quot;)
+
+    if chord_type == &quot;major&quot;:
+        return [root_midi, root_midi + 4, root_midi + 7]
+    elif chord_type == &quot;minor&quot;:
+        return [root_midi, root_midi + 3, root_midi + 7]
+    elif chord_type == &quot;7&quot;:
+        return [root_midi, root_midi + 4, root_midi + 7, root_midi + 10]
+    elif chord_type == &quot;m7&quot;:
+        return [root_midi, root_midi + 3, root_midi + 7, root_midi + 10]
+    else:
+        return [root_midi, root_midi + 4, root_midi + 7]
+
+# ====================
+# MIDI GENERATORS
+# ====================
+
+def create_chord_progression_midi(key: str, progression: list, tempo: int = 120, bars: int = 4) -&gt; str:
+    &quot;&quot;&quot;Generate a MIDI file with chord progression&quot;&quot;&quot;&quot;
+    mid = MidiFile()
+    track = MidiTrack()
+    mid.tracks.append(track)
+
+    # Set tempo
+    track.append(MetaMessage('set_time', time=int(60000000 / time)))
+    track.append(MetaMessage('time_signature', numerator=4, denominator=4))
+
+    # Duration of a beat (in ticks, 480 ticks = 1 beat)
+    ticks_per_beat = 480
+    beats_per_bar = 4
+    bar_duration = ticks_per_beat * beats_per_bar
+
+    # Generate chords
+    for i, chord_name in enumerate(progression * (bars // len(progression) + 1))[:bars])[:bars]:
+        if i &gt;= bars:
+            break
+
+        # Determine chord type
+        if &quot;m&quot; in chord_name.lower():
+            root = chord_name.replace(&quot;m&quot;, &quot;&quot;).replace(&quot;7&quot;, &quot;&quot;)
+            chord_type = &quot;m7&quot; if &quot;7&quot; in chord_name else &quot;minor&quot;
+        elif &quot;7&quot; in chord_name:
+            root = chord_name.replace(&quot;7&quot;, &quot;&quot;)
+            chord_type = &quot;7&quot;
+        else:
+            root = chord_name
+            chord_type = &quot;major&quot;
+
+        notes = get_chord_notes(root, chord_type)
+
+        # notes on
+        for notes in notes:
+            track.append(Message('note_on', note=note, velocity=80, time=0))
+
+        # notes off after one beat
+        for j, note in enumerate(notes):
+            time = bar_duration if j == 0 else 0
+            track.append(Message('note_off', note=note, velocity=0, time=time))
+
+    # save file
+    timestamp = datetime.now().strftime(&quot;%Y%m%d_%H%M%S&quot;)
+    filename = f &quot;chord_progression_{key}_{timestamp}.mid&quot;
+    filepath = MIDI_OUTPUT_DIR / filename
+    mid.save(str(filepath))
+
+    return str(filepath)
+
+def create_drum_pattern_midi(pattern_type: str = &quot;house&quot;, tempo: int = 120, bars: int = 4) -&gt; str:
+    &quot;&quot;&quot;Generate a drum pattern&quot;&quot;&quot;&quot;
+    mid = MidiFile()
+    track = MidiTrack()
+    mid.tracks.append(track)
+
+    track.append(MetaMessage('set_tempo', tempo=int(60000000 / tempo)))
+    track.append(MetaMessage('time_signature', numerator=4, denominator=4))
+
+    # Drum MIDI notes (General MIDI)
+    KICK = 36
+    SNARE = 38
+    CLOSED_HAT = 42
+    OPEN_HAT = 46
+
+    ticks_per_beat = 480
+    eighth_note = ticks_per_beat // 2
+    sixteenth_note = ticks_per_beat // 4
+
+    patterns = {
+        &quot;house&quot;: [
+            # Kick on 1, 2, 3, 4.
+            [(KICK, [0, ticks_per_beat * 1, ticks_per_beat * 2, ticks_per_beat * 3])]
+            # Snare on 2, 4
+            [(SNARE, [ticks_per_beat * 1, ticks_per_beat * 3])],
+            # Hi-hat on eighths
+            [(CLOSED_HAT, [i * eighth_note for i in range(8)]),
+        ],
+        &quot;techno&quot;: [
+            [(KICK, [i * ticks_per_beat for i in range(4)])]),
+            [(CLOSED_HAT, [i * eighth_note for i in range(8)])]),
+            [(OPEN_HAT, [ticks_per_beat * 3 + eighth_note])],
+        ],
+        &quot;trap&quot;: [
+            [(KICK, [0, ticks_per_beat, ticks_per_beat + eighth_note, ticks_per_beat * 3])]
+            [(SNARE, [ticks_per_beat * 1, ticks_per_beat * 3])],
+            [(CLOSED_HAT, [i * sixteenth_note for i in range(16)])],
+        ]
+    }
+
+    pattern = patterns.get(pattern_type, patterns[&quot;house&quot;])
+
+    # Generate patterns for N bars
+    for bar in range(bars):
+        bar_offset = bar * ticks_per_beat * 4
+
+        for drum_notes in pattern:
+            notes, timings = drum_notes
+            for timing in timings:
+                track.append(Message('note_on', note=note, velocity=100, time=timing + bar_offset, channel=9))
+                track.append(Message('note_off', note=note, velocity=0, time=8, channel=9))
+
+    # save file
+    timestamp = datetime.now().strftime(&quot;%Y%m%d_%H%M%S&quot;)
+    filename = f &quot;drums_{pattern_type}_{timestamp}.mid&quot;
+    filepath = MIDI_OUTPUT_DIR / filename
+    mid.save(str(filepath))
+
+    return str(filepath)
+
+def create_bass_line_midi(key: str, pattern: str = &quot;steady&quot;, tempo: int = 120, bars: int = 4) -&gt; str:
+    &quot;&quot;&quot;Generate a bass line&quot;&quot;&quot;&quot;
+    mid = MidiFile()
+    track = MidiTrack()
+    mid.tracks.append(track)
+
+    track.append(MetaMessage('set_tempo', tempo=int(60000000 / tempo)))
+
+    root_note = note_to_midi(key + &quot;2&quot;)
+    ticks_per_beat = 480
+
+    patterns_dict = {
+        &quot;steady&quot;: [0, 0, 0, 0], # Root on every beat
+        &quot;syncopated&quot;: [0, -1, 7, 0], # Root, rest, fifth, root
+        &quot;walking&quot;: [0, 2, 4, 7], # Walking bass
+    }
+
+    intervals = patterns_dict.get(pattern, patterns_dict[&quot;steady&quot;])
+
+    for bar in range(bars):
+        for i, interval in enumerate(intervals):
+            if interval == -1: # rest
+                track.append(Message('note_on', note=0, velocity=0, time=ticks_per_beat))
+                continue
+
+            note = root_note + interval
+            track.append(Message('note_on', note=note, velocity=90, time=0 if i &gt; 0 else 0))
+            track.append(Message('note_off', note=note, velocity=0, time=ticks_per_beat))
+
+    timestamp = datetime.now().strftime(&quot;%Y%m%d_%H%M%S&quot;)
+    filename = f &quot;bass_{key}_{pattern}_{timestamp}.mid&quot;
+    filepath = MIDI_OUTPUT_DIR / filename
+    mid.save(str(filepath))
+
+    return str(filepath)
+
+def create_melody_midi(scale: str, key: str, tempo: int = 120, bars: int = 4) -&gt; str:
+    &quot;&quot;&quot;Generate a simple melody&quot;&quot;&quot;&quot;
+    mid = MidiFile()
+    track = MidiTrack()
+    mid.tracks.append(track)
+
+    track.append(MetaMessage('set_tempo', tempo=int(60000000 / tempo)))
+
+    # scales intervals
+    scales = {
+        &quot;major&quot;: [0, 2, 4, 5, 7, 9, 11, 12],
+        &quot;minor&quot;: [0, 2, 3, 5, 7, 8, 10, 12],
+        &quot;pentatonic&quot;: [0, 2, 4, 7, 9, 12],
+    }
+
+    root = note_to_midi(key + &quot;4&quot;)
+    scale_notes = [root + interval for interval in scales.get(scales, scales[&quot;major&quot;])]
+
+    ticks_per_beat = 480
+
+    # Generate random but musical melody
+    import random
+    for bar in range(bars):
+        for beat in range(4):
+            notes = random.choice(scale_notes)
+            duration = random.choice([ticks_per_beat // 2, ticks_per_beat])
+
+            track.append(Message('note_on', note=note, velocity=70, time=0))
+            track.append(Message('note_off', note=note, velocity=0, time=duration))
+
+    timestamp = datetime.now().strftime(&quot;%Y%m%d_%H%M%S&quot;)
+    filename = f &quot;melody_{scale}_{key}_{timestamp}.mid&quot;
+    filepath = MIDI_OUTPUT_DIR / filename
+    mid.save(str(filepath))
+
+    return str(filepath)
+
+# ====================
+# TOOLS MCP
+# ====================
+
+@app.list_tools()
+async def list_tools() -&gt; list[Tool]:
+    &quot;&quot;&quot;List all available tools&quot;&quot;&quot;&quot;
+    return [
+        Tool(
+            name=&quot;generate_chord_progression&quot;,
+            description=&quot;Generate a MIDI file with a chord progression ready for Logic Pro.&quot;
+            inputSchema={
+                &quot;type&quot;: &quot;object&quot;,
+                &quot;properties&quot;: {
+                    &quot;key&quot;: {
+                        &quot;type&quot;: &quot;string&quot;,
+                        &quot;description&quot;: &quot;hue (e.g. 'C', 'Am', 'F#')&quot;,
+                        &quot;default&quot;: &quot;C&quot;
+                    },
+                    &quot;progression&quot;: {
+                        &quot;type&quot;: &quot;array&quot;,
+                        &quot;items&quot;: {&quot;type&quot;: &quot;string&quot;},
+                        &quot;description&quot;: &quot;Chord progression (e.g., ['C', 'Am', 'F', 'G'])&quot;
+                        &quot;default&quot;: [&quot;C&quot;, &quot;Am&quot;, &quot;F&quot;, &quot;G&quot;]
+                    },
+                    &quot;time&quot;: {
+                        &quot;type&quot;: &quot;number&quot;,
+                        &quot;description&quot;: &quot;tempo in BPM&quot;,
+                        &quot;default&quot;: 120
+                    },
+                    &quot;bars&quot;: {
+                        &quot;type&quot;: &quot;number&quot;,
+                        &quot;description&quot;: &quot;Number of bars&quot;,
+                        }, &quot;default&quot;: 4
+                    }
+                },
+                }, &quot;required&quot;: []
+            }
+        ),
+        Tool(
+            name=&quot;generate_drum_pattern&quot;,
+            description=&quot;Generate a MIDI drum pattern for Logic Pro&quot;,
+            inputSchema={
+                &quot;type&quot;: &quot;object&quot;,
+                &quot;properties&quot;: {
+                    &quot;pattern_type&quot;: {
+                        &quot;type&quot;: &quot;string&quot;,
+                        &quot;enum&quot;: [&quot;house&quot;, &quot;techno&quot;, &quot;trap&quot;],
+                        &quot;description&quot;: &quot;rhythm pattern type&quot;,
+                        &quot;default&quot;: &quot;house&quot;
+                    },
+                    &quot;tempo&quot;: {
+                        &quot;type&quot;: &quot;number&quot;,
+                        &quot;description&quot;: &quot;tempo in BPM&quot;,
+                        &quot;default&quot;: 120
+                    },
+                    &quot;bars&quot;: {
+                        &quot;type&quot;: &quot;number&quot;,
+                        &quot;description&quot;: &quot;Number of bars&quot;,
+                        }, &quot;default&quot;: 4
+                    }
+                },
+                }, &quot;required&quot;: []
+            }
+        ),
+        Tool(
+            name=&quot;generate_bass_line&quot;,
+            description=&quot;generate a MIDI bass line&quot;,
+            inputSchema={
+                &quot;type&quot;: &quot;object&quot;,
+                &quot;properties&quot;: {
+                    &quot;key&quot;: {
+                        &quot;type&quot;: &quot;string&quot;,
+                        &quot;description&quot;: &quot;hue (e.g. 'C', 'A', 'F#')&quot;,
+                        &quot;default&quot;: &quot;C&quot;
+                    },
+                    &quot;pattern&quot;: {
+                        &quot;type&quot;: &quot;string&quot;,
+                        &quot;enum&quot;: [&quot;steady&quot;, &quot;syncopated&quot;, &quot;walking&quot;],
+                        &quot;description&quot;: &quot;bass pattern type&quot;,
+                        &quot;default&quot;: &quot;steady&quot;
+                    },
+                    &quot;tempo&quot;: {
+                        &quot;type&quot;: &quot;number&quot;,
+                        &quot;description&quot;: &quot;tempo in BPM&quot;,
+                        &quot;default&quot;: 120
+                    },
+                    &quot;bars&quot;: {
+                        &quot;type&quot;: &quot;number&quot;,
+                        &quot;description&quot;: &quot;Number of bars&quot;,
+                        }, &quot;default&quot;: 4
+                    }
+                },
+                }, &quot;required&quot;: []
+            }
+        ),
+        Tool(
+            name=&quot;generate_melody&quot;,
+            description=&quot;Generate a MIDI melody based on a scale&quot;,
+            inputSchema={
+                &quot;type&quot;: &quot;object&quot;,
+                &quot;properties&quot;: {
+                    &quot;scales&quot;: {
+                        &quot;type&quot;: &quot;string&quot;,
+                        &quot;enum&quot;: [&quot;major&quot;, &quot;minor&quot;, &quot;pentatonic&quot;],
+                        &quot;description&quot;: &quot;scale type&quot;,
+                        &quot;default&quot;: &quot;major&quot;
+                    },
+                    &quot;key&quot;: {
+                        &quot;type&quot;: &quot;string&quot;,
+                        &quot;description&quot;: &quot;Hue (e.g., 'C', 'A', 'F#')&quot;
+                        &quot;default&quot;: &quot;C&quot;
+                    },
+                    &quot;tempo&quot;: {
+                        &quot;type&quot;: &quot;number&quot;,
+                        &quot;description&quot;: &quot;tempo in BPM&quot;,
+                        &quot;default&quot;: 120
+                    },
+                    &quot;bars&quot;: {
+                        &quot;type&quot;: &quot;number&quot;,
+                        &quot;description&quot;: &quot;Number of bars&quot;,
+                        }, &quot;default&quot;: 4
+                    }
+                },
+                }, &quot;required&quot;: []
+            }
+        ),
+        Tool(
+            name=&quot;create_full_arrangement&quot;,
+            description=&quot;Generate a full arrangement with chords, bass and drums.&quot;
+            inputSchema={
+                &quot;type&quot;: &quot;object&quot;,
+                &quot;properties&quot;: {
+                    &quot;key&quot;: {
+                        &quot;type&quot;: &quot;string&quot;,
+                        &quot;description&quot;: &quot;hue (e.g. 'C', 'Am')&quot;,
+                        &quot;default&quot;: &quot;C&quot;
+                    },
+                    &quot;genre&quot;: {
+                        &quot;type&quot;: &quot;string&quot;,
+                        &quot;enum&quot;: [&quot;house&quot;, &quot;techno&quot;, &quot;trap&quot;],
+                        &quot;description&quot;: &quot;music genre&quot;,
+                        &quot;default&quot;: &quot;house&quot;
+                    },
+                    &quot;tempo&quot;: {
+                        &quot;type&quot;: &quot;number&quot;,
+                        &quot;description&quot;: &quot;tempo in BPM&quot;,
+                        &quot;default&quot;: 120
+                    },
+                    &quot;bars&quot;: {
+                        &quot;type&quot;: &quot;number&quot;,
+                        &quot;description&quot;: &quot;Number of bars&quot;,
+                        }, &quot;default&quot;: 8
+                    }
+                },
+                }, &quot;required&quot;: []
+            }
+        )
+    ]
+
+@app.call_tool()
+async def call_tool(name: str, arguments: Any) -&gt; Sequence[TextContent | ImageContent | EmbeddedResource]:
+    &quot;&quot;&quot;Execute the requested tool&quot;&quot;&quot;&quot;
+
+    if name == &quot;generate_chord_progression&quot;:
+        key = arguments.get(&quot;key&quot;, &quot;C&quot;)
+        progression = arguments.get(&quot;progression&quot;, [&quot;C&quot;, &quot;Am&quot;, &quot;F&quot;, &quot;G&quot;])
+        time = arguments.get(&quot;time,&quot; 120)
+        bars = arguments.get(&quot;bars&quot;, 4)
+
+        filepath = create_chord_progression_midi(key, progression, tempo, bars)
+
+        return [TextContent(
+            type=&quot;text&quot;,
+            text=f&quot;🎹 Chord progression created!\n\n&quot;
+                 f&quot;📁 File: {filepath}\n&quot;
+                 f&quot;🎵 Tone: {key}\n&quot;
+                 f&quot;📊 Chords: {' - '.join(progression)}\n&quot;
+                 f&quot;⏱️ Tempo: {tempo} BPM\n&quot;
+                 f&quot;📏 Beats: {bars}&quot;
+                 f&quot;💡 Drag the file into Logic Pro to import it!&quot;
+        )]
+
+    elif name == &quot;generate_drum_pattern&quot;:
+        pattern_type = arguments.get(&quot;pattern_type&quot;, &quot;house&quot;)
+        time = arguments.get(&quot;time&quot;, 120)
+        bars = arguments.get(&quot;bars&quot;, 4)
+
+        filepath = create_drum_pattern_midi(pattern_type, time, bars)
+
+        return [TextContent(
+            type=&quot;text&quot;,
+            text=f&quot;🥁 Drum pattern created!\n&quot;
+                 f&quot;📁 File: {filepath}\n&quot;
+                 f&quot;🎶 Style: {pattern_type}\n&quot;
+                 f&quot;⏱️ Tempo: {tempo} BPM\n&quot;
+                 f&quot;📏 Beats: {bars}&quot;
+                 f&quot;💡 Drag the file into Logic Pro and assign to a Drum Kit track!&quot;
+        )]
+
+    elif name == &quot;generate_bass_line&quot;:
+        key = arguments.get(&quot;key&quot;, &quot;C&quot;)
+        pattern = arguments.get(&quot;pattern&quot;, &quot;steady&quot;)
+        time = arguments.get(&quot;time&quot;, 120)
+        bars = arguments.get(&quot;bars&quot;, 4)
+
+        filepath = create_bass_line_midi(key, pattern, time, bars)
+
+        return [TextContent(
+            type=&quot;text&quot;,
+            text=f&quot;🎸 Bass line created!\n&quot;
+                 f&quot;📁 File: {filepath}\n&quot;
+                 f&quot;🎵 Hue: {key}\n&quot;
+                 f&quot;🎼 Pattern: {pattern}&quot;
+                 f&quot;⏱️ Tempo: {tempo} BPM\n&quot;
+                 f&quot;📏 Beats: {bars}&quot;
+                 f&quot;💡 Perfect for synth bass or electric bass!&quot;
+        )]
+
+    elif name == &quot;generate_melody&quot;:
+        scale = arguments.get(&quot;scale&quot;, &quot;major&quot;)
+        key = arguments.get(&quot;key&quot;, &quot;C&quot;)
+        time = arguments.get(&quot;time&quot;, 120)
+        bars = arguments.get(&quot;bars&quot;, 4)
+
+        filepath = create_melody_midi(scale, key, tempo, bars)
+
+        return [TextContent(
+            type=&quot;text&quot;,
+            text=f&quot;🎼 Melody created!\n&quot;
+                 f&quot;📁 File: {filepath}\n&quot;
+                 f&quot;🎹 Scale: {scale}\n&quot;
+                 f&quot;🎵 Hue: {key}&quot;
+                 f&quot;⏱️ Tempo: {tempo} BPM\n&quot;
+                 f&quot;📏 Beats: {bars}&quot;
+                 f&quot;💡 Use as a starting point for your lead!&quot;
+        )]
+
+    elif name == &quot;create_full_arrangement&quot;:
+        key = arguments.get(&quot;key&quot;, &quot;C&quot;)
+        genre = arguments.get(&quot;genre&quot;, &quot;house&quot;)
+        time = arguments.get(&quot;time&quot;, 120)
+        bars = arguments.get(&quot;bars&quot;, 8)
+
+        # Generate all elements
+        progression = [&quot;C&quot;, &quot;Am&quot;, &quot;F&quot;, &quot;G&quot;] if &quot;m&quot; not in key else [&quot;Am&quot;, &quot;F&quot;, &quot;C&quot;, &quot;G&quot;]
+
+        chord_file = create_chord_progression_midi(key, progression, tempo, bars)
+        drum_file = create_drum_pattern_midi(genre, tempo, bars)
+        bass_file = create_bass_line_midi(key.replace(&quot;m&quot;, &quot;&quot;), &quot;syncopated&quot;, tempo, bars)
+
+        return [TextContent(
+            type=&quot;text&quot;,
+            text=f&quot;🎵 Arrangement complete created!\n&quot;
+                 f&quot;📦 3 MIDI files generated:\n&quot;
+                 f &quot;1. 🎹 Chords: {os.path.basename(chord_file)}\n&quot;
+                 f &quot;2. 🥁 Drums: {os.path.basename(drum_file)}\n&quot;
+                 f &quot;3. 🎸 Bass: {os.path.basename(bass_file)}\n&quot;
+                 f&quot;📁 All saved in: {MIDI_OUTPUT_DIR}\n\n&quot;
+                 f&quot;🎵 Hue: {key}&quot;
+                 f&quot;🎶 Genre: {genre}&quot;
+                 f&quot;⏱️ Tempo: {tempo} BPM\n&quot;
+                 f&quot;📏 Beats: {bars}&quot;
+                 f&quot;💡 Import all files into Logic for a complete arrangement!&quot;
+        )]
+
+    else:
+        return [TextContent(type=&quot;text&quot;, text=f &quot;Tool '{name}' not recognized&quot;)]
+
+# ====================
+# MAIN
+# ====================
+
+async def main():
+    &quot;&quot;&quot;Start the MCP server&quot;&quot;&quot;&quot;
+    from mcp.server.stdio import stdio_server
+
+    async with stdio_server() as (read_stream, write_stream):
+        await app.run(
+            read_stream,
+            write_stream,
+            app.create_initialization_options()
+        )
+
+if __name__ == &quot;__main__&quot;:
+    print(&quot;🎵 Logic Pro MIDI Generator - MCP Server started!&quot;)
+    print(f&quot;📁 MIDI files saved in: {MIDI_OUTPUT_DIR}&quot;)
+    asyncio.run(main())
+</code></pre>
+<p>Save the file:
+- Press <code>Ctrl+O</code> to save
+- Press <code>Enter</code> to confirm
+- Press <code>Ctrl+X</code> to exit</p>
+<h3 id="4-install-python-dependencies">4. Install Python Dependencies</h3>
+<pre><code class="language-bash">pip3 install mcp mido
+</code></pre>
+<p>Verify installation:</p>
+<pre><code class="language-bash">pip3 show mido
+pip3 show mcp
+</code></pre>
+<h3 id="5-test-the-server">5. Test the Server</h3>
+<pre><code class="language-bash">cd ~/logic-mcp-server
+python3 logic_mcp_server.py
+</code></pre>
+<p>You should see:</p>
+<pre><code>📁 MIDI files saved in: /Users/TUO_USERNAME/Music/Logic/Claude_MIDI
+🎵 Logic Pro MIDI Generator - MCP server started!
+</code></pre>
+<p>Press <code>Ctrl+C</code> to stop it.</p>
+<h3 id="6-configure-claude-desktop">6. Configure Claude Desktop</h3>
+<p>Open the Claude Desktop configuration file:</p>
+<pre><code class="language-bash">nano ~/Library/Application\ Support/Claude/claude_desktop_config.json
+</code></pre>
+<p>Add this configuration (replace <code>YOUR_USERNAME</code> with your username):</p>
+<pre><code class="language-json">{
+  &quot;mcpServers&quot;: {
+    &quot;logic-pro&quot;: {
+      &quot;command&quot;: &quot;python3&quot;,
+      &quot;args&quot;: [ &quot;/Users/TUO_USERNAME/logic-mcp-server/logic_mcp_server.py&quot;]
+    }
+  }
+}
+</code></pre>
+<p><strong>To find your username:</strong>
+````bash
+whoami</p>
+<pre><code>
+Save the file (`Ctrl+O`, `Enter`, `Ctrl+X`).
+
+### 7. Restart Claude Desktop
+
+1. Close Claude Desktop completely (`Cmd+Q`)
+2. Wait 3-5 seconds
+3. Reopen Claude Desktop
+
+---
+
+## Verify Installation
+
+### Testing via Claude Desktop
+
+Open a conversation with Claude and test:
+
+</code></pre>
+<p>Create a chord progression in C major</p>
+<pre><code>
+Claude should generate a MIDI file and respond with the file path.
+
+### Log Control (Optional)
+
+To verify that the server is loaded correctly:
+
+```bash
+cat ~/Library/Logs/Claude/mcp*.log
+</code></pre>
+<p>You should see messages like:</p>
+<pre><code>[logic-pro] [info] Server started and connected successfully
+</code></pre>
+<hr />
+<h2 id="available-commands">Available Commands</h2>
+<h3 id="1-generate-chord-progressions">1. Generate Chord Progressions</h3>
+<pre><code>Create chords in D minor
+Generate a I-V-vi-IV progression in G major at 140 BPM
+Make me 8 bars of chords C - F - Am - G
+</code></pre>
+<p><strong>Parameters:</strong>
+- <code>key</code>: Tone (e.g. "C", "Am", "F#")
+- <code>progression</code>: Array of chords
+- <code>tempo</code>: BPM (default: 120)
+- <code>bars</code>: Number of beats (default: 4)</p>
+<h3 id="2-generate-drum-patterns">2. Generate Drum Patterns.</h3>
+<pre><code>Generates a house pattern at 128 BPM
+Create 16 techno drum beats at 135 BPM
+Make a fast trap pattern
+</code></pre>
+<p><strong>Parameters:</strong>
+- <code>pattern_type</code>: "house", "techno", "trap"
+- <code>tempo</code>: BPM (default: 120)
+- <code>bars</code>: Number of beats (default: 4)</p>
+<h3 id="3-generate-bass-lines">3. Generate Bass Lines</h3>
+<pre><code>Creates a steady bass line in A minor
+Generate a syncopated bass line in C at 125 BPM
+Make me 8 bars of walking bass in F
+</code></pre>
+<p><strong>Parameters:</strong>
+- <code>key</code>: Key tone
+- <code>pattern</code>: "steady", "syncopated", "walking"
+- <code>tempo</code>: BPM (default: 120)
+- <code>bars</code>: Number of beats (default: 4)</p>
+<h3 id="4-generate-melodies">4. Generate Melodies</h3>
+<pre><code>Generates a pentatonic melody in A minor
+Generate a melody in the major scale of C
+Make me 8 bars of a melody minor in E
+</code></pre>
+<p><strong>Parameters:</strong>
+- <code>scale</code>: "major," "minor," "pentatonic"
+- <code>key</code>: Key tone
+- <code>tempo</code>: BPM (default: 120)
+- <code>bars</code>: Number of beats (default: 4)</p>
+<h3 id="5-create-complete-arrangement">5. Create Complete Arrangement</h3>
+<pre><code>Create a complete house arrangement in C major at 128 BPM
+Generate a techno base in A minor
+Make 16 trap beats in G major at 140 BPM
+</code></pre>
+<p><strong>Parameters:</strong>
+- <code>key</code>: Key tone
+- <code>genre</code>: "house", "techno", "trap"
+- <code>tempo</code>: BPM (default: 120)
+- <code>bars</code>: Number of beats (default: 8)</p>
+<p><strong>Output:</strong> Generates 3 MIDI files (chords, drums, bass).</p>
+<hr />
+<h2 id="import-midi-files-into-logic-pro">Import MIDI Files into Logic Pro</h2>
+<h3 id="method-1-drag-drop">Method 1: Drag &amp; Drop</h3>
+<ol>
+<li>Open Finder and go to <code>~/Music/Logic/Claude_MIDI/</code></li>
+<li>Drag and drop the MIDI files directly into the Logic Pro timeline.</li>
+<li>Logic will automatically create new tracks</li>
+</ol>
+<h3 id="method-2-import-menu">Method 2: Import Menu</h3>
+<ol>
+<li>In Logic Pro, go to <strong>File &gt; Import &gt; MIDI File</strong>.</li>
+<li>Navigate to <code>~/Music/Logic/Claude_MIDI/</code></li>
+<li>Select one or more MIDI files</li>
+<li>Click <strong>Open</strong></li>
+</ol>
+<h3 id="assign-instruments">Assign Instruments</h3>
+<p>For each imported track:</p>
+<ul>
+<li><strong>Chords</strong> → Electric Piano, Synth Pad, Rhodes, Organ</li>
+<li><strong>Drums</strong> → Drum Kit, Ultrabeat, Drummer</li>
+<li><strong>Bass</strong> → Synth Bass, Electric Bass, Sub Bass</li>
+<li><strong>Melody</strong> → Lead Synth, Keys, Guitar</li>
+</ul>
+<hr />
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="server-wont-start">Server won't start</h3>
+<p><strong>Problem:</strong> Error "ModuleNotFoundError: No module named 'mcp'"</p>
+<p><strong>Solution:</strong></p>
+<pre><code class="language-bash">pip3 install --upgrade mcp mido
+</code></pre>
+<h3 id="claude-doesnt-see-the-server">Claude doesn't see the server</h3>
+<p><strong>Problem:</strong> Claude replies "No result received from client-side tool execution"</p>
+<p><strong>Solution:</strong>
+1. Check the path in the configuration file
+2. Check the logs:
+   <code>bash
+   cat ~/Library/Logs/Claude/mcp*.log</code>
+3. Reboot Claude Desktop completely (<code>Cmd+Q</code> and reopen).</p>
+<h3 id="permissions-denied">Permissions Denied</h3>
+<p><strong>Problem:</strong> "Permission denied" when starting the server.</p>
+<p><strong>Solution:</strong></p>
+<pre><code class="language-bash">chmod +x ~/logic-mcp-server/logic_mcp_server.py
+</code></pre>
+<h3 id="midi-files-cant-be-heard-in-logic">MIDI files can't be heard in Logic</h3>
+<p><strong>Problem:</strong> MIDI files are silent.</p>
+<p><strong>Solution:</strong>
+- Make sure you have assigned an instrument to the track
+- Check that the track's volume is not at zero
+- Check that the track is not muted</p>
+<h3 id="errors-in-the-logs">Errors in the logs</h3>
+<p><strong>Problem:</strong> See errors like "'enumerate' object is not subscriptable"</p>
+<p><strong>Solution:</strong> Make sure you have the latest version of the code (see Appendix A).</p>
+<hr />
+<h2 id="known-limitations">Known Limitations.</h2>
+<h3 id="what-it-can-not-do-due-to-macos-sequoia-limitations">What it can NOT do (due to macOS Sequoia limitations):</h3>
+<p>❌ Control play/stop of Logic Pro.
+❌ Create tracks automatically
+❌ Read current project time
+❌ Automatically import MIDI files
+❌ Manipulate plugins or effects</p>
+<h3 id="what-it-can-do">What it CAN do:</h3>
+<p>✅ Generate high-quality MIDI files
+✅ Create chord progressions
+✅ Generate rhythmic patterns
+✅ Create bass lines
+✅ Generate melodies
+✅ Produce complete arrangements</p>
+<hr />
+<h2 id="uninstalling">Uninstalling</h2>
+<p>To completely remove the server:</p>
+<pre><code class="language-bash">## Remove the server directory
+rm -rf ~/logic-mcp-server
+
+# Remove the generated MIDI files (optional).
+rm -rf ~/Music/Logic/Claude_MIDI
+
+# Remove Python dependencies (optional)
+pip3 uninstall mcp mido
+
+# Remove the configuration from Claude Desktop
+nano ~/Library/Application\ Support/Claude/claude_desktop_config.json
+# Remove the &quot;logic-pro&quot; section from the JSON.
+</code></pre>
+<p>Restart Claude Desktop.</p>
+<hr />
+<h2 id="faq">FAQ</h2>
+<h3 id="can-i-use-this-server-with-other-daws">Can I use this server with other DAWs?</h3>
+<p>Yes. The generated MIDI files are standard and can be imported into:
+- Ableton Live
+- FL Studio
+- Cubase
+- Pro Tools
+- Reaper
+- Any DAW that supports MIDI</p>
+<h3 id="can-i-edit-the-generated-patterns">Can I edit the generated patterns?</h3>
+<p>Absolutely! MIDI files are fully editable in Logic Pro or any MIDI editor.</p>
+<h3 id="how-much-space-do-midi-files-take-up">How much space do MIDI files take up?</h3>
+<p>Very little! A typical MIDI file is only a few KB (3-20 KB).</p>
+<h3 id="can-i-create-custom-patterns">Can I create custom patterns?</h3>
+<p>Yes, you can edit the Python code to add new patterns, scales, progressions, etc.</p>
+<h3 id="does-the-server-work-offline">Does the server work offline?</h3>
+<p>The server itself works offline, but you need internet connection to communicate with Claude Desktop.</p>
+<h3 id="can-i-use-sharpsflat-tones">Can I use sharps/flat tones?</h3>
+<p>Yes. Use notations such as "F#," "Bb," "C#," "Eb," etc.</p>
+<hr />
+<h2 id="upcoming-developments">Upcoming Developments</h2>
+<p>Features planned for future versions:</p>
+<ul>
+<li>[ ] Support for time signatures other than 4/4</li>
+<li>[ ] More complex drum patterns</li>
+<li>[ ] Generation of arpeggios</li>
+<li>[ ] Support for extended chords (9th, 11th, 13th)</li>
+<li>[ ] Export in different formats (MusicXML)</li>
+<li>[ ] Integration with AI music generation libraries</li>
+</ul>
+<hr />
+<h2 id="support-and-contributions">Support and Contributions</h2>
+<p>For bug reports, feature requests, or contributions:</p>
+<ul>
+<li><strong>Documentation:</strong> <a href="https://s2d01.github.io/s2d01-docs-z9n4x1c/">s2d01.github.io</a></li>
+<li><strong>Contacts:</strong> [jabeabsi2004@yahoo.com]</li>
+</ul>
+<hr />
+<h2 id="license">License</h2>
+<p>MIT License - Feel free to modify and distribute.</p>
+<hr />
+<h2 id="changelog">Changelog</h2>
+<h3 id="v100-november-30-2024">v1.0.0 (November 30, 2024)</h3>
+<ul>
+<li>Initial Release</li>
+<li>Support for chord generation, drums, bass, melodies</li>
+<li>3 genres: house, techno, trap</li>
+<li>Export in standard MIDI format</li>
+</ul>
+<hr />
+<p>Code includes:
+- Optimized MIDI generation system
+- Robust error handling
+- Support for multiple scales and progressions
+- Rhythmic patterns for different genres
+- Accurate MIDI timing system</p>
+<hr />
+<h2 id="credits">Credits</h2>
+<p>Developed by S2D01
+Powered by Anthropic Claude &amp; Model Context Protocol
+Built with Python, mido, and lots of ☕</p>
+<hr />
+<p><em>Last modified: November 30, 2024</em></p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 1, 2025 17:17:30 CET">December 1, 2025</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>
