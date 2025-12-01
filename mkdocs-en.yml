@@ -1,0 +1,27 @@
+site_name: S2D01 Manual (EN)
+site_url: https://s2d01.github.io/s2d01-docs-z9n4x1c/en/
+docs_dir: docs-en
+
+theme:
+  name: material
+  language: en
+  palette:
+    scheme: slate
+    primary: blue
+    accent: cyan
+  custom_dir: overrides
+
+plugins:
+  - search
+  - git-revision-date-localized:
+      type: date
+      locale: en
+      timezone: Europe/Rome
+      fallback_to_build_date: true
+
+nav:
+  - Italian version: https://s2d01.github.io/s2d01-docs-z9n4x1c/
+  - Home (EN): index.md
+  - S2D01 MANUAL:
+      - DRUMS: DRUMS/index.md
+      # ... stessa struttura EN
