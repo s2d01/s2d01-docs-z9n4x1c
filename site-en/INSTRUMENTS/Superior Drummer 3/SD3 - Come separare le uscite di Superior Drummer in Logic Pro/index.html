@@ -1,0 +1,4903 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://s2d01.github.io/s2d01-docs-z9n4x1c/en/INSTRUMENTS/Superior%20Drummer%203/SD3%20-%20Come%20separare%20le%20uscite%20di%20Superior%20Drummer%20in%20Logic%20Pro/">
+      
+      
+        <link rel="prev" href="../SD3%20-%20Channel%20Strip%20Settings%20in%20Logic/">
+      
+      
+        <link rel="next" href="../SD3%20-%20Librerie/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>SD3 Come separare le uscite di Superior Drummer in Logic Pro - S2D01 Manual (EN)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#how-to-separate-the-outputs-of-superior-drummer-in-logic-pro" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="S2D01 Manual (EN)" class="md-header__button md-logo" aria-label="S2D01 Manual (EN)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            S2D01 Manual (EN)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              SD3   Come separare le uscite di Superior Drummer in Logic Pro
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="S2D01 Manual (EN)" class="md-nav__button md-logo" aria-label="S2D01 Manual (EN)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    S2D01 Manual (EN)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S2D01 MANUAL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DRUMS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    DRUMS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DRUMS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    00_INDEX - Drums
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DRUMS/Drum%20Sound%20%E2%80%93%20Massive%20Attack%20%28SD3%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Drum Sound – Massive Attack (SD3)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DRUMS/Drums%20Parallel%20%E2%80%93%20Aux%20%28Logic%20%2B%20SD3%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PARALLEL DRUMS - AUX (LOGIC - SD3)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DRUMS/Layering%20Kick%2BSnare%20%E2%80%93%20Massive%20Attack%20%28Hybrid%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Layering Kick+Snare – Massive Attack (Hybrid)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FX
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    FX
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FX/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Main index of workflow effects S2D01.
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BUS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    BUS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FX/BUS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Main index of the BUS folder.
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FX/BUS/Ambient/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ambient
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FX/BUS/Master%20Bus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Master Bus - Ambient / Trip-Hop Style
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PARALLEL COMPRESSION
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    PARALLEL COMPRESSION
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FX/PARALLEL%20COMPRESSION/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DRUMS - Parallel Compression
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_2" id="__nav_3_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bus & Spazio
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Bus & Spazio
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FX/PARALLEL%20COMPRESSION/Bus%20%26%20Spazio/Bus%20Reverbs%20Ambient%20%E2%80%93%20doppio%20riverbero%20%28Eno%20style%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bus Reverbs Ambient - double reverberation (Eno style).
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FX/PARALLEL%20COMPRESSION/Bus%20%26%20Spazio/Drums%20Bus%20%28Stack%20Genitore%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Drums Bus (Parent Stack)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FX/PARALLEL%20COMPRESSION/Bus%20%26%20Spazio/Drums%20Bus%20dark-ambient/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Drums Bus dark ambient
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_3" id="__nav_3_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestione & Salvataggi
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Gestione & Salvataggi
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FX/PARALLEL%20COMPRESSION/Gestione%20%26%20Salvataggi/Come%20salvare%20tutto%20in%20Logic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How to save everything in Logic
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FX/PARALLEL%20COMPRESSION/Gestione%20%26%20Salvataggi/Salva%20Channel%20Strip%20e%20Patch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Save Channel Strip and/or Patch
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_4" id="__nav_3_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Suoni & Ritmiche
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Suoni & Ritmiche
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FX/PARALLEL%20COMPRESSION/Suoni%20%26%20Ritmiche/Hi-Hat%20%26%20Percussioni%20Trip-Hop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hi Hat & Percussioni Trip Hop
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FX/PARALLEL%20COMPRESSION/Suoni%20%26%20Ritmiche/Layering%20Kick%20%26%20Snare%20stile%20Massive%20Attack%20%28ibrido%20acustico-elettronico%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Layering Kick & Snare stile Massive Attack (ibrido acustico elettronico)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FX/PARALLEL%20COMPRESSION/Suoni%20%26%20Ritmiche/Ritmiche%20%28Massive%20Attack%20style%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ritmiche (Massive Attack style)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FX/PARALLEL%20COMPRESSION/Suoni%20%26%20Ritmiche/SD3%20Sounds%20%28Massive%20Attack%20Style%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SD3 Sounds (Massive Attack Style)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_5" id="__nav_3_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Workflows
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FX/PARALLEL%20COMPRESSION/Workflows/Ambient%20Dark%20Parallel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ambient Dark Parallel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FX/PARALLEL%20COMPRESSION/Workflows/Bonus%20Ambient%20Downtempo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bonus Ambient Downtempo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FX/PARALLEL%20COMPRESSION/Workflows/Parallel%20Compression/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parallel Compression
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FX/PARALLEL%20COMPRESSION/Workflows/Punch%20Elettronica%20Modern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Punch Elettronica Modern
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FX/PARALLEL%20COMPRESSION/Workflows/Super%20Punchy%20Drum%20Saturation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Super Punchy Drum Saturation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FX/PARALLEL%20COMPRESSION/Workflows/Workflow%20Eno%20%2B%20Massive%20Attack%20%E2%80%93%20SOLO%20con%20effetti%20Logic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow Eno + Massive Attack - ONLY with Logic effects.
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FX/PARALLEL%20COMPRESSION/Workflows/Workflow%20pratico%20in%20Logic%20Pro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow pratico in Logic Pro
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TEXTURE
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    TEXTURE
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FX/TEXTURE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    00_INDEX - Texture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FX/TEXTURE/Bus%20Textures%20in%20stile%20Shimmer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bus Textures in the style of :Shimmer"
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FX/TEXTURE/Extra-Dark/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Extra-Dark textures (environmental, dirty, cinematic)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FX/TEXTURE/Texture%20-%20Ambient%20layers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Texture   Ambient layers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VOX
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VOX
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FX/VOX/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    00_INDEX - Vox
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FX/VOX/Trip-Hop%20%20Ambient/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Trip Hop  Ambient
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    INSTRUMENTS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    INSTRUMENTS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    00_INDEX - Instruments
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Harmonial Binaurics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Harmonial Binaurics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Harmonial%20Binaurics/Harmonial%20con%20Drum%20Machine%20Designer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Harmonial con Drum Machine Designer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Harmonial%20Binaurics/Harmonial%20in%20Logic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creative workflow with audio bounces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Harmonial%20Binaurics/Harmonial%20in%20Sampler/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Harmonial in Sampler
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Harmonial%20Binaurics/Template%20Logic%20Pro%20%E2%80%93%20Harmonial%20Resampling%20Station/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Template Logic Pro – Harmonial Resampling Station
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Harmonial%20Binaurics/Workflow%20Completo%20con%20Harmonial%20Binaurics%20in%20Logic%20Pro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Complete Workflow with Harmonial Binaurics in Logic Pro.
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Harmonial%20Binaurics/_README%20%E2%80%93%20Harmonial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    00_INDEX - Harmonial
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Superior Drummer 3
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Superior Drummer 3
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SD3%20-%20Channel%20Strip%20Settings%20in%20Logic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Channel Strip Settings organization in Logic
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SD3   Come separare le uscite di Superior Drummer in Logic Pro
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SD3   Come separare le uscite di Superior Drummer in Logic Pro
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-separate-the-outputs-of-superior-drummer-in-logic-pro" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to separate the outputs of Superior Drummer in Logic Pro.
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How to separate the outputs of Superior Drummer in Logic Pro.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-load-superior-as-a-multi-output-instrument" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Load Superior as a Multi-Output instrument.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-activate-the-outputs-in-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Activate the outputs in Logic.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-assigns-the-outputs-inside-superior" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Assigns the outputs inside Superior
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-mix-in-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Mix in Logic
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-the-split-outputs-appear-in-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where the split outputs appear in Logic.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#typical-example-in-mixer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Typical example in Mixer.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommended-routing-multi-output-in-superior-drummer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommended Routing (Multi-Output in Superior Drummer).
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-translates-into-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How it translates into Logic
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advantages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advantages
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-better-orient-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to better orient yourself
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-to-check-in-superior-drummer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What to check in Superior Drummer.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick check
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-in-logic-create-the-corresponding-auxes-with-the" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        - in Logic → create the corresponding auxes with the "+".
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-cymbals-work-in-superior" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How cymbals work in Superior
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-you-can-do-if-you-want-more-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What you can do if you want more control
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#typical-routing-multi-out-in-superior-drummer-logic-pro" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Typical routing (multi-out in Superior Drummer → Logic Pro).
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#because-it-works-like-this" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Because it works like this
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practical-tip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Practical tip
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-save-routing-as-a-preset-in-superior-drummer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to save routing as a preset in Superior Drummer.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-call-it-back-after" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to call it back after
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-to-save-the-routing-sd3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where to save the routing (SD3).
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#then-to-reload-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Then to reload it
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-channel-strip-setting-the-one-you-find-at-the-top-of-the-logic-strip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Channel Strip Setting (the one you find at the top of the Logic strip).
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-track-stack-summing-stack-saving-as-patch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Track Stack (Summing Stack) + saving as Patch.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-project-template-the-ultimate-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Project template (the "ultimate" method).
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#save-your-track-stack-as-a-patch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Save your Track Stack as a Patch.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recall-the-superior-drummer-multi-out-patch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recall the Superior Drummer Multi-Out Patch.
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Recall the Superior Drummer Multi-Out Patch.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#here-are-some-veteran-tricks-that-may-come-in-handy-with-superior-drummer-logic-pro" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Here are some veteran tricks that may come in handy with Superior Drummer + Logic Pro:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-rename-the-aux-right-away" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Rename the aux right away.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-color-the-tracks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Color the tracks.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-folder-track-for-cleaning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Folder Track for cleaning.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-fast-stem-bounces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. fast stem bounces.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-use-internal-buses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Use Internal Buses
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-save-multiple-versions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Save multiple versions
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SD3%20-%20Librerie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SD3   Librerie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SD3%20-%20Mappa%20Presets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Map Preset S2D01 (SD3 + Logic)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SD3%20-%20Organizzazione%20Presets%20SD3%20%28consigliata%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Organization Preset SD3 (recommended)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SD3%20-%20Richiamare%20i%20Kits%20in%20SD3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow: Recall Kits in SD3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SD3%20-%20Suoni%20alla%20Brian%20Eno%20con%20SD3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ambient Kit / Brian Eno with your SD3/EZX libraries.
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SD3%20-%20Suoni%20alla%20Massive%20Attack%20con%20SD3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Massive Attack Kit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../_README%20-%20Superior%20Drummer%203/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Superior Drummer 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    KEY COMMANDS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    KEY COMMANDS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../KEY%20COMMANDS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Key Commands - Index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../KEY%20COMMANDS/Key%20Commands%20%E2%80%93%20S2D01%20Workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Key Commands - S2D01 Workflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../KEY%20COMMANDS/Quick%20Reference%20%E2%80%93%20S2D01%20Key%20Commands%20%28Logic%20Pro%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Reference - S2D01 Key Commands (Logic Pro)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../KEY%20COMMANDS/S2D01%20QUICK%20GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S2D01 QUICK GUIDE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../KEY%20COMMANDS/S2D01%20%E2%80%93%20Key%20Commands%20Map%20%28Logic%20Pro%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S2D01 - Key Commands Map (Logic Pro)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MASTER
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    MASTER
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MASTER/Sezione%20Master/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sezione Master
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP MIDI FILE SERVER
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    MCP MIDI FILE SERVER
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MCP%20MIDI%20FILE%20SERVER/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    00_INDEX - MCP MIDI FILE SERVER
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MCP%20MIDI%20FILE%20SERVER/logic-mcp-server-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation Guide: Logic Pro MCP Server for macOS Sequoia
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TEMPLATE
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    TEMPLATE
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../TEMPLATE/Checklist%20%E2%80%93%20Full%20%E2%86%92%20Light%20Template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Checklist: from Full → Light Template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../TEMPLATE/Checklist%20%E2%80%93%20Light%20%E2%86%92%20Full%20Template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Checklist: from Light → Full Template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../TEMPLATE/Metodo%20%E2%80%93%20Light%20%E2%86%92%20Full%20Template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Method: switch from Template Light → Full
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../TEMPLATE/Procedura%20Lampo%20%E2%80%93%20Switch%20Light%20-%3E%20Full/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lightning Procedure - Switch Light / Full
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../TEMPLATE/S2D01%20Studio%20Template%20%E2%80%93%20Light%20Version/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S2D01 Studio Template - Light Version
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../TEMPLATE/S2D01%20Studio%20Template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Logic Pro Template - S2D01 Studio Template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../TEMPLATE/S2D01%20Template%20%E2%80%93%20Light%20vs%20Full/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S2D01 Template - Light vs Full
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../TEMPLATE/_README%20-%20Template%20Logic%20Pro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Template Logic Pro - Index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TIPS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    TIPS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../TIPS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    00_INDEX - Tips
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_2" id="__nav_9_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MacOS Terminal Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    MacOS Terminal Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../TIPS/MacOS-Terminal-Guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    00_INDEX - MacOS-Terminal Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../TIPS/MacOS-Terminal-Guide/macos_terminal_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Complete Guide to Terminal Commands for Mac Musicians
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_3" id="__nav_9_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Obsidian
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Obsidian
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../TIPS/Obsidian/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    00_INDEX - Obsidian
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../TIPS/Obsidian/Obsidian%20%E2%80%93%20Ergonomic%20Tips/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Obsidian - Ergonomic Tips
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../TIPS/Obsidian/Obsidian%20%E2%80%93%20Ergonomics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Obsidian - Ergonomics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-separate-the-outputs-of-superior-drummer-in-logic-pro" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to separate the outputs of Superior Drummer in Logic Pro.
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How to separate the outputs of Superior Drummer in Logic Pro.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-load-superior-as-a-multi-output-instrument" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Load Superior as a Multi-Output instrument.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-activate-the-outputs-in-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Activate the outputs in Logic.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-assigns-the-outputs-inside-superior" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Assigns the outputs inside Superior
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-mix-in-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Mix in Logic
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-the-split-outputs-appear-in-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where the split outputs appear in Logic.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#typical-example-in-mixer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Typical example in Mixer.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommended-routing-multi-output-in-superior-drummer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommended Routing (Multi-Output in Superior Drummer).
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-translates-into-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How it translates into Logic
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advantages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advantages
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-better-orient-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to better orient yourself
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-to-check-in-superior-drummer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What to check in Superior Drummer.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick check
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-in-logic-create-the-corresponding-auxes-with-the" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        - in Logic → create the corresponding auxes with the "+".
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-cymbals-work-in-superior" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How cymbals work in Superior
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-you-can-do-if-you-want-more-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What you can do if you want more control
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#typical-routing-multi-out-in-superior-drummer-logic-pro" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Typical routing (multi-out in Superior Drummer → Logic Pro).
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#because-it-works-like-this" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Because it works like this
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practical-tip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Practical tip
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-save-routing-as-a-preset-in-superior-drummer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to save routing as a preset in Superior Drummer.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-call-it-back-after" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to call it back after
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-to-save-the-routing-sd3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where to save the routing (SD3).
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#then-to-reload-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Then to reload it
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-channel-strip-setting-the-one-you-find-at-the-top-of-the-logic-strip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Channel Strip Setting (the one you find at the top of the Logic strip).
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-track-stack-summing-stack-saving-as-patch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Track Stack (Summing Stack) + saving as Patch.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-project-template-the-ultimate-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Project template (the "ultimate" method).
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#save-your-track-stack-as-a-patch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Save your Track Stack as a Patch.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recall-the-superior-drummer-multi-out-patch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recall the Superior Drummer Multi-Out Patch.
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Recall the Superior Drummer Multi-Out Patch.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#here-are-some-veteran-tricks-that-may-come-in-handy-with-superior-drummer-logic-pro" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Here are some veteran tricks that may come in handy with Superior Drummer + Logic Pro:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-rename-the-aux-right-away" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Rename the aux right away.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-color-the-tracks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Color the tracks.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-folder-track-for-cleaning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Folder Track for cleaning.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-fast-stem-bounces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. fast stem bounces.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-use-internal-buses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Use Internal Buses
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-save-multiple-versions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Save multiple versions
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>SD3   Come separare le uscite di Superior Drummer in Logic Pro</h1>
+
+<h2 id="how-to-separate-the-outputs-of-superior-drummer-in-logic-pro">How to separate the outputs of Superior Drummer in Logic Pro.</h2>
+<h3 id="1-load-superior-as-a-multi-output-instrument">1. Load Superior as a Multi-Output instrument.</h3>
+<ul>
+<li>
+<p>Go to <strong>Track → New Software Instrument Track</strong>.</p>
+</li>
+<li>
+<p>In the window that opens, under <strong>Track Type</strong>, choose:
+    <strong>"Instrument" → "AU Instruments → Toontrack → Superior Drummer → Multi Output (16xStereo) "</strong> (or 8xStereo if you don't need too many outputs).</p>
+</li>
+<li>
+<p>Click <strong>Create</strong>.</p>
+</li>
+</ul>
+<hr />
+<h3 id="2-activate-the-outputs-in-logic">2. Activate the outputs in Logic.</h3>
+<ul>
+<li>
+<p>Go to the <strong>Mixer in Logic</strong> (<code>X</code> key).</p>
+</li>
+<li>
+<p>Find the Superior Drummer track.</p>
+</li>
+<li>
+<p>At the bottom, on the plugin channel, you will see a little <strong>"+"</strong> (next to the instrument name).</p>
+</li>
+<li>
+<p>Click the "+" as many times as the outputs you need (kick, snare, hat, toms, overheads, room...).</p>
+</li>
+<li>
+<p>Logic will automatically create <strong>corresponding aux channels</strong>.</p>
+</li>
+</ul>
+<hr />
+<h3 id="3-assigns-the-outputs-inside-superior">3. Assigns the outputs inside Superior</h3>
+<ul>
+<li>
+<p>Open Superior Drummer and go into the <strong>Internal Mixer</strong> of the plugin.</p>
+</li>
+<li>
+<p>For each channel (Kick, Snare Top, Snare Bottom, HH, Toms, OH, Room, etc.) choose a different output:</p>
+<ul>
+<li>
+<p>Kick → Output 1 (stereo or mono depending on configuration)</p>
+</li>
+<li>
+<p>Snare Top → Output 2</p>
+</li>
+<li>
+<p>Snare Bottom → Output 3</p>
+</li>
+<li>
+<p>Hi-Hat → Output 4</p>
+</li>
+<li>
+<p>... and so on.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Now Logic will receive the separate signals in the aux channels created in step 2.</p>
+</li>
+</ul>
+<hr />
+<h3 id="4-mix-in-logic">4. Mix in Logic</h3>
+<ul>
+<li>
+<p>Each aux is now an independent audio track:</p>
+<ul>
+<li>
+<p>You can insert EQ, compression, reverb, delay, etc.</p>
+</li>
+<li>
+<p>you can adjust volumes separately, do automations, etc.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>-&gt; The MIDI always remains <strong>on one track</strong>, but at the audio level you have the drums completely split.</p>
+<h2 id="where-the-split-outputs-appear-in-logic">Where the split outputs appear in Logic.</h2>
+<ol>
+<li>
+<p>Go to the <strong>Mixer in Logic</strong> (<code>X</code> on the keyboard).</p>
+</li>
+<li>
+<p>Find the <strong>Superior Drummer</strong> track. It is the <strong>Instrument Channel Strip</strong> (the one with the plugin loaded).</p>
+</li>
+<li>
+<p>At the bottom of the channel, you will see a small <strong>"+"</strong>button next to the fader.</p>
+<ul>
+<li>
+<p>This button is used to <strong>create the Aux Channels</strong> corresponding to the additional outputs.</p>
+</li>
+<li>
+<p>Click "+" as many times as there are outputs you have assigned in Superior's internal mixer (kick, snare, hi-hat, etc.).</p>
+</li>
+</ul>
+</li>
+<li>
+<p>As soon as you click, Logic adds new <strong>Aux Channels</strong> to the right of the main track.</p>
+<ul>
+<li>
+<p>E.g. Aux 1 = Snare, Aux 2 = Hi-Hat, Aux 3 = Toms, Aux 4 = Overheads... (depends on how you mapped them inside Superior).</p>
+</li>
+<li>
+<p>These channels have their own <strong>fader, insert, send, pan</strong>, like any audio track.</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>-&gt; Superior's original track still remains the "mother track": it houses the MIDI and usually picks up the <strong>Kick (Output 1)</strong>. All other parts instead come on the auxes.</p>
+<h2 id="typical-example-in-mixer">Typical example in Mixer.</h2>
+<p>After activating the outputs, in Logic's Mixer you might see something like this:</p>
+<ul>
+<li>
+<p><strong>Inst 1 - Superior Drummer (Instrument Channel)</strong> → Kick</p>
+</li>
+<li>
+<p><strong>Aux 1</strong> → Snare Top</p>
+</li>
+<li>
+<p><strong>Aux 2</strong> → Snare Bottom</p>
+</li>
+<li>
+<p><strong>Aux 3</strong> → Hi-Hat</p>
+</li>
+<li>
+<p><strong>Aux 4</strong> → Toms</p>
+</li>
+<li>
+<p><strong>Aux 5</strong> → Overheads</p>
+</li>
+<li>
+<p><strong>Aux 6</strong> → Room</p>
+</li>
+</ul>
+<p>And so on.</p>
+<h2 id="recommended-routing-multi-output-in-superior-drummer">Recommended Routing (Multi-Output in Superior Drummer).</h2>
+<p>Inside Superior's <strong>Mixer</strong> assigns like this:</p>
+<ul>
+<li>
+<p><strong>Output 1-2 (Main Stereo / Logic's Inst Channel)</strong> → <strong>Kick</strong></p>
+</li>
+<li>
+<p><strong>Output 3-4</strong> → <strong>Snare (Top + Bottom, or keep Top alone if you want more control)</strong></p>
+</li>
+<li>
+<p><strong>Output 5-6</strong> → <strong>Hi-Hat</strong></p>
+</li>
+<li>
+<p><strong>Outputs 7-8</strong> → <strong>Toms</strong> (you can group them together or make individual outputs if you want a super detailed mix)</p>
+</li>
+<li>
+<p><strong>Outputs 9-10</strong> → <strong>Overheads (OH)</strong></p>
+</li>
+<li>
+<p><strong>Outputs 11-12</strong> → <strong>Room (Environments)</strong></p>
+</li>
+<li>
+<p><strong>Outputs 13-14</strong> → <strong>Extra percussions</strong> (shakers, claps, etc., if any)</p>
+</li>
+</ul>
+<hr />
+<h2 id="how-it-translates-into-logic">How it translates into Logic</h2>
+<p>When you click the <strong>"+"</strong> in the Superior track (in Logic's Mixer), you will get:</p>
+<ul>
+<li>
+<p><strong>Inst 1</strong> (Superior Drummer - Kick)</p>
+</li>
+<li>
+<p><strong>Aux 1</strong> (Snare)</p>
+</li>
+<li>
+<p><strong>Aux 2</strong> (Hi-Hat)</p>
+</li>
+<li>
+<p><strong>Aux 3</strong> (Toms)</p>
+</li>
+<li>
+<p><strong>Aux 4</strong> (Overheads)</p>
+</li>
+<li>
+<p><strong>Aux 5</strong> (Room)</p>
+</li>
+<li>
+<p><strong>Aux 6</strong> (Extra Percussion)</p>
+</li>
+</ul>
+<hr />
+<h2 id="advantages">Advantages</h2>
+<ul>
+<li>
+<p>Separate Kick and Snare: you can EQ them and compress them as you like.</p>
+</li>
+<li>
+<p>Hi-Hat on its own channel: useful for handling reverb and treble.</p>
+</li>
+<li>
+<p>Separate Overheads and Room: total control of "air" and spaciousness.</p>
+</li>
+<li>
+<p>Toms: you can keep them together or split them into multiple outputs if you want to treat each tom individually.</p>
+</li>
+</ul>
+<p>-&gt; I recommend saving this setup as <strong>preset of Superior's mixer</strong>, so every time you open the plugin you already have the routing ready.</p>
+<h2 id="how-to-better-orient-yourself">How to better orient yourself</h2>
+<ol>
+<li>
+<p>Rename the Aux channels in Logic (e.g. "Snare", "Hi-Hat", "Toms"...) so you don't get confused with numbers.</p>
+<ul>
+<li>Just click on the channel name below the fader and type in the name.</li>
+</ul>
+</li>
+<li>
+<p>In Superior Drummer, match the outputs:</p>
+<ul>
+<li>
+<p>Snare → Out 3/4</p>
+</li>
+<li>
+<p>Hi-Hat → Out 5/6</p>
+</li>
+<li>
+<p>etc.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Then in Logic, the first aux you created (even though it's called Aux 18) will correspond to Out 3/4, the second to Out 5/6, etc.</p>
+</li>
+</ol>
+<hr />
+<p>-&gt; Basically: don't worry about the number (18, 19, 20...), they're just labels. The important thing is that each audio output of Superior has its own dedicated Aux.</p>
+<hr />
+<h2 id="what-to-check-in-superior-drummer">What to check in Superior Drummer.</h2>
+<ol>
+<li>
+<p>Open <strong>Superior Drummer</strong> and go into the <strong>Internal Mixer</strong> of the plugin.</p>
+</li>
+<li>
+<p>Look at the channel strips (Kick, Snare Top, Snare Bottom, Hi-Hat, etc.).</p>
+</li>
+<li>
+<p>At the bottom of each channel strip is a drop-down menu that says the output (usually by default it is "Out 1/2").</p>
+</li>
+<li>
+<p>Change the Snare (or what you want to separate) from <strong>Out 1/2 → Out 3/4</strong>.</p>
+</li>
+<li>
+<p>Now on Logic, Aux 18 will receive the signal.</p>
+</li>
+</ol>
+<hr />
+<h2 id="quick-check">Quick check</h2>
+<ul>
+<li>
+<p>Play the MIDI track (or tap a Snare pad in Superior).</p>
+</li>
+<li>
+<p>You should see the meter move to Aux 18.</p>
+</li>
+<li>
+<p>Now you can enter plugins, EQ, compression, automations, etc.</p>
+</li>
+</ul>
+<hr />
+<p>-&gt; Summarizing: <strong>routing must be done twice</strong></p>
+<ul>
+<li>in Superior Drummer → assign each piece of kit to a different output.</li>
+</ul>
+<h2 id="-in-logic-create-the-corresponding-auxes-with-the">- in Logic → create the corresponding auxes with the "+".</h2>
+<h2 id="how-cymbals-work-in-superior">How cymbals work in Superior</h2>
+<ul>
+<li>
+<p>Cymbals are recorded <strong>in the Overheads (OH)</strong> and <strong>Room/Ambience</strong> microphones.</p>
+</li>
+<li>
+<p>You will almost never find them as a separate "Crash 1" or "Ride" channel, because in a real studio, cymbals are not miked individually (except in special cases).</p>
+</li>
+<li>
+<p>So:</p>
+<ul>
+<li>
+<p>if you move the <strong>OH</strong> to an output, you'll hear all the cymbals in there.</p>
+</li>
+<li>
+<p>the <strong>Rooms/Environments</strong> always contain the dishes as well (in addition to all the kit).</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="what-you-can-do-if-you-want-more-control">What you can do if you want more control</h2>
+<ol>
+<li>
+<p><strong>Adjust the balance in Superior's mixer</strong>.</p>
+<ul>
+<li>
+<p>Inside Superior you can often lower the "Bleed" (the amount of cymbals going into the Room, Snare, etc. mics).</p>
+</li>
+<li>
+<p>You can also manage how much each individual cymbal goes into the OHs.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Separate Ride or Crash (when possible)</strong></p>
+<ul>
+<li>
+<p>In some Superior libraries there are spot mics dedicated at least to Ride (important cymbal in the mix).</p>
+</li>
+<li>
+<p>If your library provides them, you can send them on a separate output.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Alternative trick</strong></p>
+<ul>
+<li>
+<p>If you need even more surgical control (like different compression for Ride and Crash), you can duplicate the MIDI:</p>
+<ul>
+<li>
+<p>On one track you keep only the Ride,</p>
+</li>
+<li>
+<p>on another just the Crash,</p>
+</li>
+<li>
+<p>and you load two instances of Superior with different routings.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>It is a little more CPU heavy, but gives you more freedom.</p>
+</li>
+</ul>
+</li>
+</ol>
+<hr />
+<p>-&gt; Basically: dishes "live" on the <strong>Overheads and Room</strong>, not as individual channels.</p>
+<hr />
+<h2 id="typical-routing-multi-out-in-superior-drummer-logic-pro">Typical routing (multi-out in Superior Drummer → Logic Pro).</h2>
+<ul>
+<li>
+<p><strong>Kick</strong> → Out 1/2 (stays on the main channel of Superior)</p>
+</li>
+<li>
+<p><strong>Snare (Top + Bottom)</strong> → Out 3/4</p>
+</li>
+<li>
+<p><strong>Hi-Hat</strong> → Out 5/6</p>
+</li>
+<li>
+<p><strong>Toms (all together, or separate if you want more control)</strong> → Out 7/8</p>
+</li>
+<li>
+<p><strong>Overheads (all cymbals)</strong> → Out 9/10</p>
+</li>
+<li>
+<p><strong>Room/Ambience</strong> → Out 11/12</p>
+</li>
+</ul>
+<p>-&gt; This is the "basic package" you need to mix well.</p>
+<hr />
+<h2 id="because-it-works-like-this">Because it works like this</h2>
+<ul>
+<li>
+<p><strong>Kick and Snare</strong>: individually mic'd → it pays to treat them with dedicated EQ and compression.</p>
+</li>
+<li>
+<p><strong>Hi-Hat</strong>: dedicated spot mic, useful for adjusting reverb and controlling treble.</p>
+</li>
+<li>
+<p><strong>Toms</strong>: you can keep them together (Out 7/8) or split them (Tom 1 → 7/8, Tom 2 → 9/10, etc.) if you want more surgical mix.</p>
+</li>
+<li>
+<p><strong>Overheads</strong>: here you hear the whole kit, but especially the cymbals. You can control brightness and stereo.</p>
+</li>
+<li>
+<p><strong>Room</strong>: adds depth and realistic "air" → you can compress hard for more punch.</p>
+</li>
+</ul>
+<hr />
+<h2 id="practical-tip">Practical tip</h2>
+<p>Once this routing is set up:</p>
+<ol>
+<li>
+<p>Rename the auxes to Logic (Kick, Snare, HH, Toms, OH, Room).</p>
+</li>
+<li>
+<p>Save everything as a <strong>preset in Superior Drummer</strong> and also as a <strong>patch in Logic</strong> → so when you open a new project you are ready without redoing the setup.</p>
+</li>
+</ol>
+<hr />
+<h2 id="how-to-save-routing-as-a-preset-in-superior-drummer">How to save routing as a preset in Superior Drummer.</h2>
+<ol>
+<li>
+<p><strong>Open the Internal Mixer</strong> of Superior Drummer.</p>
+</li>
+<li>
+<p>Assign the outputs as I told you (typical example):</p>
+<ul>
+<li>
+<p>Kick → Out 1/2</p>
+</li>
+<li>
+<p>Snare (Top+Bottom) → Out 3/4</p>
+</li>
+<li>
+<p>Hi-Hat → Out 5/6</p>
+</li>
+<li>
+<p>Toms → Out 7/8</p>
+</li>
+<li>
+<p>Overheads → Out 9/10</p>
+</li>
+<li>
+<p>Room → Out 11/12</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Once everything sounds and the meters in Logic move correctly:</p>
+<ul>
+<li>
+<p>Go to the top right of the Superior Drummer window.</p>
+</li>
+<li>
+<p>Open the <strong>Presets</strong> menu.</p>
+</li>
+<li>
+<p>Choose <strong>Save Mixer Preset</strong> (in SD3 it is called that).</p>
+</li>
+<li>
+<p>Give it a name like: <em>Logic MultiOut Routing</em>.</p>
+</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2 id="how-to-call-it-back-after">How to call it back after</h2>
+<ul>
+<li>
+<p>Whenever you open a new instance of Superior Drummer:</p>
+<ol>
+<li>
+<p>Load the kit you want.</p>
+</li>
+<li>
+<p>Go to the Presets menu → <strong>Load Mixer Preset</strong>.</p>
+</li>
+<li>
+<p>Select <em>Logic MultiOut Routing</em>.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Boom!!!  You already have all the outputs assigned, without redoing anything.</p>
+</li>
+</ul>
+<hr />
+<p>-&gt; Extra Tip:
+You can also save directly in Logic a <strong>Channel Strip Setting</strong> or even a <strong>Project Template</strong> with Superior already in Multi-Output mode and the Auxes renamed. That way you always start with the setup ready.</p>
+<hr />
+<h2 id="where-to-save-the-routing-sd3">Where to save the routing (SD3).</h2>
+<ol>
+<li>
+<p>Go to the <strong>Internal Mixer</strong> in Superior Drummer.</p>
+</li>
+<li>
+<p>At the top left of the Mixer you will see a small drop-down menu (icon with an arrow).</p>
+<ul>
+<li>
+<p>There you will find options like:</p>
+<ul>
+<li>
+<p><em>Reset Mixer</em></p>
+</li>
+<li>
+<p><em>Save Mixer Preset</em></p>
+</li>
+<li>
+<p><em>Load Mixer Preset</em></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Choose <strong>Save Mixer Preset</strong>.</p>
+<ul>
+<li>You will be asked for a name → write, for example, <em>Logic MultiOut</em>.</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2 id="then-to-reload-it">Then to reload it</h2>
+<ul>
+<li>
+<p>When you open a new project and load SD3:</p>
+<ul>
+<li>Go back to the Mixer → same menu → <strong>Load Mixer Preset</strong> → choose <em>Logic MultiOut</em>.</li>
+</ul>
+</li>
+<li>
+<p>The routing assignments to the outputs (Out 1/2, Out 3/4, etc.) return immediately as you had saved them.</p>
+</li>
+</ul>
+<hr />
+<p>-&gt; Note: If you don't see it right away, make sure you are in the <strong>Mixer tab</strong> of SD3 (not in Drums, Grooves, etc.). The menu is right above the channel strips.</p>
+<hr />
+<h2 id="1-channel-strip-setting-the-one-you-find-at-the-top-of-the-logic-strip">1. <strong>Channel Strip Setting</strong> (the one you find at the top of the Logic strip).</h2>
+<ul>
+<li>
+<p>If you save only the <strong>main instrument</strong> (the "Superior Drummer" track), Logic remembers the plugin, its presets and internal routings <strong>on that track only</strong>.</p>
+</li>
+<li>
+<p>It doesn't also automatically recall your <strong>linked auxes</strong> (the ones created with the "+"), though. Those have to be recreated every time.<br />
+    -&gt; So: <strong>not enough</strong> if you want to call up the whole multi-output setup already expanded.</p>
+</li>
+</ul>
+<hr />
+<h2 id="2-track-stack-summing-stack-saving-as-patch">2. <strong>Track Stack (Summing Stack)</strong> + saving as <strong>Patch</strong>.</h2>
+<ul>
+<li>
+<p>If you put Superior's track + all Aux inside a <strong>Summing Stack</strong>:</p>
+<ol>
+<li>
+<p>select the track of SD3 + all its Aux.</p>
+</li>
+<li>
+<p>Menu <strong>Track → Create Track Stack</strong> → choose <strong>Summing Stack</strong>.</p>
+</li>
+<li>
+<p>Rename the stack, such as <em>Superior MultiOut</em>.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Now go to the Browser on the left (Inspector → Patch Library) and click on <strong>Save...</strong>.</p>
+</li>
+<li>
+<p>This saves a complete <strong>Patch</strong>, with in it:</p>
+<ul>
+<li>
+<p>the tool (SD3),</p>
+</li>
+<li>
+<p>the Auxes already created and connected,</p>
+</li>
+<li>
+<p>all plugins on the auxes,</p>
+</li>
+<li>
+<p>names and routing.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>-&gt; When you call it up in a new project, it recreates <strong>the whole group</strong>: instrument + Aux + routing mixer.</p>
+<hr />
+<h2 id="3-project-template-the-ultimate-method">3. <strong>Project template</strong> (the "ultimate" method).</h2>
+<ul>
+<li>
+<p>If you always use that setup, the most convenient is to do:</p>
+<ol>
+<li>
+<p>Open an empty project, put SD3 in Multi-Output, create the Auxes, put everything in Track Stack.</p>
+</li>
+<li>
+<p>Go to <strong>File → Save as Template</strong>.</p>
+</li>
+<li>
+<p>When you open Logic, it will show up in your initial templates → click and you're up and running.</p>
+</li>
+</ol>
+</li>
+</ul>
+<hr />
+<p>-&gt; Summarizing:</p>
+<ul>
+<li>
+<p><strong>Channel Strip Setting</strong> = saves only the main track (not the Aux).</p>
+</li>
+<li>
+<p><strong>Track Stack saved as Patch</strong> = recall everything, including Aux and routing.</p>
+</li>
+<li>
+<p><strong>Project Template</strong> = even better if you always want to have that setup ready to go.</p>
+</li>
+</ul>
+<hr />
+<h2 id="save-your-track-stack-as-a-patch">Save your Track Stack as a Patch.</h2>
+<ol>
+<li>
+<p>Select the <strong>Track Stack</strong> (the Summing Stack with SD3 and all the Auxes in it).</p>
+</li>
+<li>
+<p>With the Library open (left), you see a <strong>Save...</strong> button at the top.</p>
+</li>
+<li>
+<p>Click <strong>Save</strong> → give it a name (e.g. <em>Superior MultiOut</em>).</p>
+</li>
+<li>
+<p>Now your patch appears under <strong>User Patches</strong>.</p>
+</li>
+</ol>
+<p>-&gt; When in a new project you open the Library (<strong>Y</strong> key) you can recall it in one click: it recreates your whole SD3 + Aux + routing group.</p>
+<hr />
+<h2 id="recall-the-superior-drummer-multi-out-patch">Recall the Superior Drummer Multi-Out Patch.</h2>
+<ol>
+<li>
+<p><strong>Create a new software instrument track</strong> (even empty).</p>
+<ul>
+<li>It can be an empty MIDI track, it doesn't matter.</li>
+</ul>
+</li>
+<li>
+<p>With that track selected, press <strong>Y</strong> to open the <strong>Library</strong> (left column).</p>
+</li>
+<li>
+<p>Go to <strong>User Patches</strong> → you will find your saved patch (<em>Superior MultiOut</em> or whatever you called it).</p>
+</li>
+<li>
+<p>Click on it → Logic loads automatically:</p>
+<ul>
+<li>
+<p>Superior Drummer in Multi-Output mode</p>
+</li>
+<li>
+<p>All <strong>Aux</strong> already ready and renamed</p>
+</li>
+<li>
+<p>Routing the same as you had saved it</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Now just drag in the MIDI region of the drum kit (or record directly) and you're up and running.</p>
+</li>
+</ol>
+<hr />
+<p>-&gt; Little tip: If you often open projects where you need that patch right away, consider making a <strong>Project Template</strong> with the track already in it → that way you don't even have to go through the Library.</p>
+<h3 id="here-are-some-veteran-tricks-that-may-come-in-handy-with-superior-drummer-logic-pro">Here are some <strong>veteran tricks</strong> that may come in handy with Superior Drummer + Logic Pro:</h3>
+<hr />
+<h2 id="1-rename-the-aux-right-away">1. Rename the aux right away.</h2>
+<p>As soon as you create the Auxes (Kick, Snare, OH, Room...), rename them in the Mixer (<code>⌘</code> + click on the name) → so even in automations and effects you always know what you are dealing with.</p>
+<hr />
+<h2 id="2-color-the-tracks">2. Color the tracks.</h2>
+<p>Assign different colors (e.g., red = kick/snare, blue = cymbals, green = toms, purple = ambience). It helps so much at a glance when you have so many tracks.</p>
+<hr />
+<h2 id="3-folder-track-for-cleaning">3. Folder Track for cleaning.</h2>
+<p>If you don't want to use a Stack, you can put all the Aux inside a <strong>Folder Track</strong> → so you close/open the folder and they don't clog up your project.</p>
+<hr />
+<h2 id="4-fast-stem-bounces">4. fast stem bounces.</h2>
+<p>When you're satisfied with the routing, you can <strong>Bounce in Place</strong> each Aux → you get your audio tracks already printed (useful for archiving light projects or sending tracks to an outside sound engineer).</p>
+<hr />
+<h2 id="5-use-internal-buses">5. Use Internal Buses</h2>
+<ul>
+<li>
+<p>Create a <strong>Bus Drums</strong> and send all the Aux there.</p>
+</li>
+<li>
+<p>On that bus put parallel compression, saturation or a global reverb.<br />
+    -&gt; So you have both control over the individual pieces and a "glue" on the kit.</p>
+</li>
+</ul>
+<hr />
+<h2 id="6-save-multiple-versions">6. Save multiple versions</h2>
+<p>You can make <strong>multiple different patches</strong>:</p>
+<ul>
+<li>
+<p>a "clean" one with only routing,</p>
+</li>
+<li>
+<p>one with already basic EQ and compressors,</p>
+</li>
+<li>
+<p>one more "ambient/dark" with reverb ready.<br />
+    In one click you take your whole style with you.</p>
+</li>
+</ul>
+<hr />
+<p>💡 Bonus: If you often use <strong>the same kit as SD3</strong>, save it directly as <strong>User Preset inside Superior</strong> → so you recall both sounds and routing without touching anything in Logic.</p>
+<hr />
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 1, 2025 17:17:30 CET">December 1, 2025</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>

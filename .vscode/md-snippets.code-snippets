@@ -1,0 +1,82 @@
+{
+  "Admonition Note": {
+    "prefix": "mdnote",
+    "body": [
+      "!!! note \"${1:Nota}\"",
+      "    ${2:Testo della nota.}"
+    ]
+  },
+  "Admonition Tip": {
+    "prefix": "mdtip",
+    "body": [
+      "!!! tip \"${1:Suggerimento}\"",
+      "    ${2:Testo del suggerimento.}"
+    ]
+  },
+  "Admonition Warning": {
+    "prefix": "mdwarn",
+    "body": [
+      "!!! warning \"${1:Attenzione}\"",
+      "    ${2:Testo dell'avviso.}"
+    ]
+  },
+  "Immagine": {
+    "prefix": "mdimg",
+    "body": [
+      "![${1:descrizione}](../assets/images/${2:nome-file}.png)"
+    ]
+  },
+  "Link interno": {
+    "prefix": "mdlink",
+    "body": [
+      "[${1:titolo}](../${2:percorso/pagina}.md)"
+    ]
+  },
+  "Code block": {
+    "prefix": "mdcode",
+    "body": [
+      "```${1:yaml}",
+      "${2:contenuto}",
+      "```"
+    ]
+  },
+  "Details": {
+    "prefix": "mddetails",
+    "body": [
+      "<details>",
+      "<summary>${1:Titolo}</summary>",
+      "",
+      "${2:Contenuto…}",
+      "",
+      "</details>"
+    ]
+  }
+}
+,
+"Code block (bash)": {
+  "prefix": "mdbash",
+  "body": [
+    "```bash",
+    "${1:comando}",
+    "```"
+  ],
+  "description": "Blocco codice bash"
+},
+"Code block (yaml)": {
+  "prefix": "mdyaml",
+  "body": [
+    "```yaml",
+    "${1:chiave: valore}",
+    "```"
+  ],
+  "description": "Blocco codice YAML"
+},
+"Code block (json)": {
+  "prefix": "mdjson",
+  "body": [
+    "```json",
+    "{ \"${1:chiave}\": \"${2:valore}\" }",
+    "```"
+  ],
+  "description": "Blocco codice JSON"
+}

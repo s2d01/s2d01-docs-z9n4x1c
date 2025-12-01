@@ -1,6 +1,3 @@
-
----
-
 # Master Bus - Ambient / Trip-Hop Style
 
 ### 1. **Channel EQ (gentle tilt)**

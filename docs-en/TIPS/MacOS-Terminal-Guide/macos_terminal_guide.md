@@ -2,16 +2,16 @@
 
 ## Index
 
-1. [Disk Space Analysis](#analysis-of-disk-space)
-2. [System cleanup](#cleanup-of-system)
-3. [Managing Cache and Temporary Files](#manage-cache-and-temporary-files)
-4. [System and Process Diagnostics](#diagnostics-system-and-processes)
-5. [Search and File Management](#search-and-manage-files)
-6. [Audio and Plugin Maintenance](#maintenance-audio-and-plugin)
+1. [Disk Space Analysis](#disk-space-analysis)
+2. [System cleanup](#system-cleanup)
+3. [Managing Cache and Temporary Files](#cache-and-temporary-file-management)
+4. [System and Processes Diagnostics](#system-and-processes-diagnostics)
+5. [Search and File Management](#search-and-file-management)
+6. [Audio and Plugin Maintenance](#audio-and-plugin-maintenance)
 7. [Performance Monitoring](#performance-monitoring)
 8. [Backup and Security](#backup-and-security)
 9. [Emergency commands](#emergency-commands)
-10. [Security Levels Legend](#legend-security-levels)
+10. [Security Levels Legend](#security-levels-legend)
 
 ---
 
@@ -136,7 +136,7 @@ sudo atsutil databases -remove
 
 ---
 
-## System and Process Diagnostics
+## System and Processes Diagnostics
 
 ### Monitoring Processes
 ```bash
@@ -178,7 +178,7 @@ diskutil verifyVolume /
 
 ---
 
-## File Search and Management
+## Search and File Management
 
 ### Searching for Large Files
 ```bash
@@ -399,7 +399,7 @@ sudo rm -rf /Volumes/*/.Trash/*
 
 ---
 
-## Legend Security Levels.
+## Security Levels Legend
 
 ### SAFE.
 Commands that do not harm the system. Cache and logs are automatically recreated by applications when needed.
