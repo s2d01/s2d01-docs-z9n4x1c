@@ -4,7 +4,7 @@ docs_dir: docs
 
 theme:
   name: material
-  # language: it   # lo gestisce Langly
+  language: it
   palette:
     scheme: slate
     primary: blue
@@ -18,5 +18,3 @@ plugins:
       locale: it
       timezone: Europe/Rome
       fallback_to_build_date: true
-
-
