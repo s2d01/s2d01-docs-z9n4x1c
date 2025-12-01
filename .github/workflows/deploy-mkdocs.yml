@@ -1,21 +1,41 @@
-name: Deploy MkDocs (gh-pages)
+name: Deploy MkDocs (IT + EN)
+
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
+
 permissions:
   contents: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
-          fetch-depth: 0        # serve tutta la history per la data giusta
-      - uses: actions/setup-python@v5
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install \
+            mkdocs \
+            mkdocs-material \
+            mkdocs-git-revision-date-localized-plugin
+
+      - name: Build Italian site (root)
+        run: mkdocs build
+
+      - name: Build English site (/en)
+        run: mkdocs build -f mkdocs-en.yml -d site/en
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          python-version: '3.x'
-      - run: pip install mkdocs mkdocs-material mkdocs-git-revision-date-localized-plugin
-      - name: Deploy to gh-pages
-        run: mkdocs gh-deploy --force --clean
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
