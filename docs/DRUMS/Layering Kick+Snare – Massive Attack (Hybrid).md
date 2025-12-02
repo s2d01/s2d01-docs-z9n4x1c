@@ -1,4 +1,5 @@
 # **Layering Kick & Snare stile Massive Attack (ibrido acustico-elettronico)**
+
 ## **Obiettivo**
 Unire la **profondità organica** del kit acustico di SD3 con la **botta controllata** dei campioni elettronici → il mix tipico dei Massive Attack (batterie reali + elementi programmati).
 

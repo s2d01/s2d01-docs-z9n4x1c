@@ -1,4 +1,4 @@
-# 00_INDEX – Bus
+# Bus
 
 Indice principale della cartella **BUS**.  
 Da qui puoi accedere ai principali bus di ambiente e trattamento nel workflow **S2D01**.

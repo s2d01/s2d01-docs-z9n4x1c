@@ -938,7 +938,7 @@ Funzionalità pianificate per versioni future:
 Per bug report, feature request o contributi:
 
 - **Documentazione:** [s2d01.github.io](https://s2d01.github.io/s2d01-docs-z9n4x1c/)
-- **Contatti:** [jabeabsi2004@yahoo.com]
+- **Contatti:** [info@s2d01.org]
 
 ---
 

@@ -1,6 +1,6 @@
 ## Super Punchy Drum Saturation
 
-Quella catena che ti sei fatto (_Saturn + Pro-Q4 low cut + 1176_) è esattamente il classico approccio da **parallel punch bus**che usano i fonici seri:
+Il classico approccio da **parallel punch bus** che usano i fonici seri:
 
 - **Saturn** → ti aggiunge armoniche e “grinta”.
     

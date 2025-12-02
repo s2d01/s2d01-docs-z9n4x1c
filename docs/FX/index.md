@@ -1,4 +1,4 @@
-# 00_INDEX – FX
+#FX
 
 Indice principale degli effetti del workflow **S2D01**.
 
