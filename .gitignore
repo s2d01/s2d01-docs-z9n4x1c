@@ -1,6 +1,7 @@
 .DS_Store
 
 site/
+site-en/
 auth_key.json
 translate_docs.py
 build_all.sh
