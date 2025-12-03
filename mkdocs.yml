@@ -18,3 +18,4 @@ plugins:
       locale: it
       timezone: Europe/Rome
       fallback_to_build_date: true
+
