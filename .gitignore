@@ -1,3 +1,10 @@
 .DS_Store
 
 site/
+auth_key.json
+translate_docs.py
+build_all.sh
+auth_key.json
+translate_docs.py
+build_all.sh
+publish_all.sh
