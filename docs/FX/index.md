@@ -1,14 +1,14 @@
-#FX
+# Indice di FX
 
 Indice principale degli effetti del workflow **S2D01**.
 
 ---
 
 ## Sezioni
-- 00_INDEX – Parallel Compression
-- 00_INDEX – Bus
-- 00_INDEX – Texture
-- 00_INDEX – Vox
+- Parallel Compression
+- Bus
+- Texture
+- Vox
 
 ---
 
