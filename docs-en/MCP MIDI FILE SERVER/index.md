@@ -1,9 +1,0 @@
-# 00_INDEX - MCP MIDI FILE SERVER
-
-
-Main cover of the MCP MIDI FILE SERVER Section.  
-
----
-
-## MCP MIDI FILE SERVER Section
-MCP MIDI FILE SERVER Section
