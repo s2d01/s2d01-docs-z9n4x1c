@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://s2d01.github.io/s2d01-docs-z9n4x1c/en/sitemap.xml
